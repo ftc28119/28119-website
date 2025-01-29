@@ -101,7 +101,32 @@
             0%, 100% { color: #ff0000; }
             50% { color: #c0392b; }
         }
-        /* 其他原有样式... */
+
+        .content-card p, 
+.content-card li, 
+.team-number {
+    transition: transform 0.3s ease;
+    display: inline-block; /* 确保transform生效 */
+}
+
+/* 悬停跳动效果 */
+.content-card p:hover,
+.content-card li:hover,
+.team-number:hover {
+    animation: textBounce 0.5s ease infinite alternate;
+}
+
+@keyframes textBounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-3px); }
+}
+
+/* 排除大标题 */
+.header h1, 
+.content-card h2 {
+    animation: none !important;
+    transform: none !important;
+}
     </style>
 </head>
 <body>
