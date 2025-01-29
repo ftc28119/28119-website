@@ -117,6 +117,26 @@
     50% { transform: translateY(-12px); }
     100% { transform: translateY(-8px); }
 }
+        @keyframes charBounce {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(2px, -12px); }
+    100% { transform: translate(1px, -8px); }
+}
+
+/* 添加缩放效果 */
+.char:hover {
+    animation: charBounce 0.4s ease-out forwards,
+               charScale 0.4s ease-out forwards;
+}
+
+@keyframes charScale {
+    to { transform: scale(1.2); }
+}
+
+/* 增加动画延迟创造波浪效果 */
+.char:hover {
+    animation-delay: calc(0.05s * var(--char-index));
+}
     </style>
 </head>
 <body>
