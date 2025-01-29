@@ -102,9 +102,56 @@
             50% { color: #c0392b; }
         }
 
+        .content-card p, 
+.content-card li, 
+.team-number,
+.social-links a {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-block;
+    cursor: default;
+}
+
+.content-card p:hover,
+.content-card li:hover,
+.team-number:hover,
+.social-links a:hover {
+    animation: smartBounce 0.4s ease infinite alternate;
+    color: #1e3799; /* 悬停时主色强调 */
+}
+
+@keyframes smartBounce {
+    0% { 
+        transform: translateY(0);
+        text-shadow: none;
+    }
+    100% { 
+        transform: translateY(-2px);
+        text-shadow: 0 2px 8px rgba(30, 55, 153, 0.2);
+    }
+}
+
+/* 排除标题的特殊处理 */
+.header h1, 
+.content-card h2 {
+    pointer-events: none; /* 彻底禁用悬停效果 */
+}
+        
     </style>
 </head>
 <body>
+    <script>
+        // 自动拆分文字为字符单位
+        function wrapCharacters(element) {
+            const text = element.innerHTML.split('');
+            element.innerHTML = text.map(char => 
+                `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`
+            ).join('');
+        }
+
+        // 应用到需要逐字动画的元素
+        document.querySelectorAll('.content-card p, .content-card li, .team-number')
+            .forEach(element => wrapCharacters(element));
+    </script>
     <!-- 原始队伍介绍内容 -->
     <div class="header">
         <h1>Infinite Dream</h1>
