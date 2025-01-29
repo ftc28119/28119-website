@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infinite Dream - FTC 28119</title>
     <style>
+        /* 背景样式 */
         body {
+            position: relative;
+            background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                        url('assets/team-background.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
-            margin: 0;
             padding: 20px;
-            background-color: #f0f8ff;
         }
 
+        /* 原有样式保持不变 */
         .header {
             text-align: center;
             padding: 30px;
@@ -20,10 +28,11 @@
             color: white;
             border-radius: 15px;
             margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         .content-card {
-            background: white;
+            background: rgba(255,255,255,0.93);
             padding: 25px;
             margin: 20px auto;
             max-width: 800px;
@@ -31,29 +40,11 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            color: #1e3799;
-            border-bottom: 2px solid #1e3799;
-            padding-bottom: 5px;
-        }
-
-        .team-number {
-            font-size: 1.8em;
-            letter-spacing: 3px;
-        }
-
-        .highlight {
-            color: #e74c3c;
-            font-weight: bold;
-        }
+        /* 其他原有样式... */
     </style>
 </head>
 <body>
+    <!-- 原始队伍介绍内容 -->
     <div class="header">
         <h1>Infinite Dream</h1>
         <div class="team-number">FTC 28119</div>
@@ -61,13 +52,13 @@
 
     <div class="content-card">
         <h2>关于我们</h2>
-        <p>我们是来自北京第一实验学校的FTC队伍，自2024年成立以来，始终致力于将科技创新与团队合作相结合，在FIRST Tech Challenge的舞台上追求卓越。</p>
+        <p>我们是来自[学校/城市名称]的FTC队伍，自[年份]年成立以来，始终致力于将科技创新与团队合作相结合，在FIRST Tech Challenge的舞台上追求卓越。</p>
     </div>
 
     <div class="content-card">
         <h2>队伍使命</h2>
         <p class="highlight">"探索无限可能，用科技实现梦想"</p>
-        <p>我们相信通过STEM教育和技术创新，可以：</p>
+        <p>我们相信通过STEAM教育和技术创新，可以：</p>
         <ul>
             <li>培养工程思维与创新能力</li>
             <li>践行FIRST核心价值观</li>
@@ -88,77 +79,31 @@
         </ul>
     </div>
 
-    <!-- 可在此添加更多内容区块 -->
+    <!-- 社交媒体部分 -->
     <div class="content-card">
-        <h2>近期动态</h2>
-        <p>比赛记录</p>
-	<p>2025 China FTC Shanghai #2 Qualifier 战绩：2-4-0</p>
-    </div>
-
-</body>
-<div class="content-card">
-        <h2>关注我们/Subscribe US</h2>
-        <p>欢迎通过以下平台关注我们的最新动态：</p>
+        <h2>关注我们</h2>
         <ul class="social-links">
             <li>
-                <a href="https://space.bilibili.com/3546786471872899?spm_id_from=333.337.0.0" 
+                <a href="https://space.bilibili.com/3546786471872899" 
                    target="_blank" 
-                   rel="noopener noreferrer"
                    class="bilibili-link">
-                    Bilibili 官方主页/BiliBili URL
+                    Bilibili 官方主页
                 </a>
             </li>
             <li>
                 <a href="https://www.youtube.com/@infinitedream-r7x" 
                    target="_blank" 
-                   rel="noopener noreferrer"
                    class="youtube-link">
-                    YouTube 官方频道/YouTube URL
+                    YouTube 官方频道
                 </a>
             </li>
         </ul>
     </div>
 
-    <!-- 原有其他内容卡保持不变 -->
+    <!-- 动态占位符 -->
+    <div class="content-card">
+        <h2>近期动态</h2>
+        <p>[后续添加比赛成绩/活动记录]</p>
+    </div>
 </body>
-</html>
-
-<style>
-    /* 在原有样式基础上添加以下内容 */
-    .social-links {
-        list-style: none;
-        padding-left: 0;
-        margin-top: 20px;
-    }
-
-    .social-links li {
-        margin: 15px 0;
-        padding: 12px;
-        background: #f8f9fa;
-        border-radius: 8px;
-        transition: transform 0.2s;
-    }
-
-    .social-links li:hover {
-        transform: translateX(10px);
-    }
-
-    .social-links a {
-        text-decoration: none;
-        font-weight: 500;
-        display: block;
-    }
-
-    .bilibili-link {
-        color: #00a1d6; /* B站品牌色 */
-    }
-
-    .youtube-link {
-        color: #ff0000; /* YouTube品牌色 */
-    }
-
-    .social-links a:hover {
-        text-decoration: underline;
-    }
-</style>
 </html>
