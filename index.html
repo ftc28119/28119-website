@@ -40,6 +40,67 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
+        h1 { font-size: 2.5em; }
+        h2 { color: #1e3799; border-bottom: 2px solid #1e3799; padding-bottom: 5px; }
+        .team-number { font-size: 1.8em; letter-spacing: 3px; }
+        .highlight { color: #e74c3c; font-weight: bold; }
+
+        /* 社交媒体动画样式 */
+        .social-links {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        .social-links li {
+            margin: 15px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: 0.3s all ease;
+            position: relative;
+        }
+
+        .social-links li:hover {
+            animation: neonPulse 1.2s ease-in-out infinite;
+            transform: perspective(100px) translateZ(5px);
+            cursor: pointer;
+        }
+
+        .bilibili-link { color: #00a1d6; }
+        .youtube-link { color: #ff0000; }
+
+        .bilibili-link:hover {
+            animation: biliColor 1.5s infinite;
+            text-shadow: 0 0 10px rgba(0, 161, 214, 0.7);
+        }
+
+        .youtube-link:hover {
+            animation: youtubeColor 1.5s infinite;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        /* 动画关键帧 */
+        @keyframes neonPulse {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(0, 174, 239, 0.3);
+                opacity: 0.95;
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(0, 174, 239, 0.6);
+                opacity: 1;
+            }
+        }
+
+        @keyframes biliColor {
+            0%, 100% { color: #00a1d6; }
+            50% { color: #1e3799; }
+        }
+
+        @keyframes youtubeColor {
+            0%, 100% { color: #ff0000; }
+            50% { color: #c0392b; }
+        }
         /* 其他原有样式... */
     </style>
 </head>
