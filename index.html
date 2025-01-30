@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infinite Dream - FTC 28119</title>
     <style>
-        /* 背景样式 */
+        /* 基础样式 */
         body {
             position: relative;
-            background: linear-gradient(rgba(255,255,255,1.2), rgba(255,255,255,1.2)),
-                        url('assets/team-background.png');
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                        url('assets/team-bg.png');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -20,7 +20,6 @@
             padding: 20px;
         }
 
-        /* 原有样式保持不变 */
         .header {
             text-align: center;
             padding: 30px;
@@ -101,58 +100,10 @@
             0%, 100% { color: #ff0000; }
             50% { color: #c0392b; }
         }
-
-        .content-card p, 
-.content-card li, 
-.team-number,
-.social-links a {
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: inline-block;
-    cursor: default;
-}
-
-.content-card p:hover,
-.content-card li:hover,
-.team-number:hover,
-.social-links a:hover {
-    animation: smartBounce 1s ease infinite alternate;
-    color: #1e3799; /* 悬停时主色强调 */
-}
-
-@keyframes smartBounce {
-    0% { 
-        transform: translateY(0);
-        text-shadow: none;
-    }
-    100% { 
-        transform: translateY(-2px);
-        text-shadow: 0 2px 8px rgba(30, 55, 153, 0.2);
-    }
-}
-
-/* 排除标题的特殊处理 */
-.header h1, 
-.content-card h2 {
-    pointer-events: none; /* 彻底禁用悬停效果 */
-}
-        
     </style>
 </head>
 <body>
-    <script>
-        // 自动拆分文字为字符单位
-        function wrapCharacters(element) {
-            const text = element.innerHTML.split('');
-            element.innerHTML = text.map(char => 
-                `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`
-            ).join('');
-        }
-
-        // 应用到需要逐字动画的元素
-        document.querySelectorAll('.content-card p, .content-card li, .team-number')
-            .forEach(element => wrapCharacters(element));
-    </script>
-    <!-- 原始队伍介绍内容 -->
+    <!-- 页面内容 -->
     <div class="header">
         <h1>Infinite Dream</h1>
         <div class="team-number">FTC 28119</div>
@@ -160,7 +111,7 @@
 
     <div class="content-card">
         <h2>关于我们</h2>
-        <p>我们是来自北京第一实验学校的FTC队伍，自2024年成立以来，始终致力于将科技创新与团队合作相结合，在FIRST Tech Challenge的舞台上追求卓越。</p>
+        <p>我们是来自北京第一实验学校（Beijing Navigation School）的FTC队伍，自2024年10月成立以来，始终致力于将科技创新与团队合作相结合，在FIRST Tech Challenge的舞台上追求卓越。</p>
     </div>
 
     <div class="content-card">
@@ -187,9 +138,8 @@
         </ul>
     </div>
 
-    <!-- 社交媒体部分 -->
     <div class="content-card">
-        <h2>关注我们/Subscribe us</h2>
+        <h2>关注我们/Subscribe</h2>
         <ul class="social-links">
             <li>
                 <a href="https://space.bilibili.com/3546786471872899" 
@@ -208,10 +158,9 @@
         </ul>
     </div>
 
-    <!-- 动态占位符 -->
     <div class="content-card">
         <h2>近期动态</h2>
-        <p>China FTC Shanghai #2 Qualifier 成绩：2-4-0</p>
+        <p>China FTC Shanghai #2 Qualifier 战绩：2-4-0</p>
     </div>
 </body>
 </html>
