@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infinite Dream - FTC 28119</title>
     <style>
+        /* CSS变量定义 */
+        :root {
+            --primary-color: #1e3799;
+            --accent-color: #e74c3c;
+            --bili-color: #00a1d6;
+            --yt-color: #ff0000;
+            --scout-color: #1e3799;
+        }
+
         /* 基础样式 */
         body {
             position: relative;
             background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                        url('assets/team-background.png');
+                        url('assets/team-background.webp'); /* WebP格式 */
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -18,16 +27,18 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             padding: 20px;
+            overflow-y: scroll; /* 防止布局偏移 */
         }
 
         .header {
             text-align: center;
             padding: 30px;
-            background-color: #1e3799;
+            background-color: var(--primary-color);
             color: white;
             border-radius: 15px;
-            margin-bottom: 25px;
+            margin: 20px auto 25px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            contain: content; /* 优化渲染 */
         }
 
         .content-card {
@@ -40,9 +51,19 @@
         }
 
         h1 { font-size: 2.5em; }
-        h2 { color: #1e3799; border-bottom: 2px solid #1e3799; padding-bottom: 5px; }
-        .team-number { font-size: 1.8em; letter-spacing: 3px; }
-        .highlight { color: #e74c3c; font-weight: bold; }
+        h2 { 
+            color: var(--primary-color); 
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px; 
+        }
+        .team-number { 
+            font-size: 1.8em; 
+            letter-spacing: 3px; 
+        }
+        .highlight { 
+            color: var(--accent-color); 
+            font-weight: bold; 
+        }
 
         /* 社交媒体动画样式 */
         .social-links {
@@ -66,8 +87,14 @@
             cursor: pointer;
         }
 
-        .bilibili-link { color: #00a1d6; }
-        .youtube-link { color: #ff0000; }
+        /* 链接动画样式 */
+        .bilibili-link { color: var(--bili-color); }
+        .youtube-link { color: var(--yt-color); }
+        .scout-link { 
+            color: var(--scout-color) !important; 
+            text-decoration: none;
+            display: block;
+        }
 
         .bilibili-link:hover {
             animation: biliColor 1.5s infinite;
@@ -79,33 +106,57 @@
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
         }
 
+        .scout-link:hover {
+            animation: scoutColor 1.5s infinite;
+            text-shadow: 0 0 10px rgba(30, 55, 153, 0.7);
+        }
+
         /* 动画关键帧 */
         @keyframes neonPulse {
-            0%, 100% {
-                box-shadow: 0 0 5px rgba(0, 174, 239, 0.3);
-                opacity: 0.95;
-            }
-            50% {
-                box-shadow: 0 0 15px rgba(0, 174, 239, 0.6);
-                opacity: 1;
-            }
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 174, 239, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(0, 174, 239, 0.6); }
         }
 
         @keyframes biliColor {
-            0%, 100% { color: #00a1d6; }
-            50% { color: #1e3799; }
+            0%, 100% { color: var(--bili-color); }
+            50% { color: var(--primary-color); }
         }
 
         @keyframes youtubeColor {
-            0%, 100% { color: #ff0000; }
+            0%, 100% { color: var(--yt-color); }
             50% { color: #c0392b; }
+        }
+
+        @keyframes scoutColor {
+            0%, 100% { color: var(--scout-color); }
+            50% { color: #4a69bd; }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .content-card { padding: 15px; }
+        }
+
+        /* 动画降级 */
+        @media (prefers-reduced-motion: reduce) {
+            .social-links li:hover {
+                animation: none;
+                transform: none;
+            }
+        }
+
+        /* 浏览器前缀兼容 */
+        @-webkit-keyframes neonPulse {
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 174, 239, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(0, 174, 239, 0.6); }
         }
     </style>
 </head>
 <body>
     <!-- 页面内容 -->
-    <div class="header">
-        <h1>Infinite Dream</h1>
+    <div class="header" role="banner">
+        <h1 aria-label="队伍名称">Infinite Dream</h1>
         <div class="team-number">FTC 28119</div>
     </div>
 
@@ -138,9 +189,19 @@
         </ul>
     </div>
 
-<div class="content-card">
+    <div class="content-card">
         <h2>近期动态</h2>
-        <p>China FTC Shanghai #2 Qualifier 战绩：2-4-0</p>
+        <ul class="social-links">
+            <li>
+                <a href="https://ftcscout.org/teams/28119" 
+                   target="_blank" 
+                   class="scout-link"
+                   title="查看完整赛事数据"
+                   aria-label="FTC Scout赛事数据">
+                    点击跳转至我们的完整赛事数据
+                </a>
+            </li>
+        </ul>
     </div>
     
     <div class="content-card">
@@ -149,14 +210,16 @@
             <li>
                 <a href="https://space.bilibili.com/3546786471872899" 
                    target="_blank" 
-                   class="bilibili-link">
+                   class="bilibili-link"
+                   aria-label="Bilibili 官方主页">
                     Bilibili 官方主页/BiliBili
                 </a>
             </li>
             <li>
                 <a href="https://www.youtube.com/@infinitedream-r7x" 
                    target="_blank" 
-                   class="youtube-link">
+                   class="youtube-link"
+                   aria-label="YouTube 官方频道">
                     YouTube 官方频道/YouTube
                 </a>
             </li>
