@@ -11,14 +11,14 @@
             --accent-color: #e74c3c;
             --bili-color: #00a1d6;
             --yt-color: #ff0000;
-            --scout-color: #e69138;
+            --scout-color: #1e3799;
         }
 
         /* 基础样式 */
         body {
             position: relative;
             background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                        url('assets/team-background.png'); /* png格式 */
+                        url('assets/team-background.webp');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -27,7 +27,7 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             padding: 20px;
-            overflow-y: scroll; /* 防止布局偏移 */
+            overflow-y: scroll;
         }
 
         .header {
@@ -38,7 +38,7 @@
             border-radius: 15px;
             margin: 20px auto 25px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            contain: content; /* 优化渲染 */
+            contain: content;
         }
 
         .content-card {
@@ -111,6 +111,82 @@
             text-shadow: 0 0 10px rgba(30, 55, 153, 0.7);
         }
 
+        /* 新增图片社交样式 */
+        .social-images {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            transition: 0.3s all ease;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .social-card:hover {
+            animation: neonPulse 1.2s ease-in-out infinite;
+            transform: perspective(100px) translateZ(5px);
+            cursor: pointer;
+        }
+
+        .social-img {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .social-label {
+            color: var(--primary-color);
+            font-size: 0.95em;
+            font-weight: 500;
+            display: block;
+        }
+
+        /* 图片预览模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close:hover {
+            color: var(--accent-color);
+        }
+
         /* 动画关键帧 */
         @keyframes neonPulse {
             0%, 100% { box-shadow: 0 0 5px rgba(0, 174, 239, 0.3); }
@@ -136,11 +212,13 @@
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
             .content-card { padding: 15px; }
+            .social-images { gap: 20px; }
+            .social-img { width: 100px; }
         }
 
         /* 动画降级 */
         @media (prefers-reduced-motion: reduce) {
-            .social-links li:hover {
+            .social-links li:hover, .social-card:hover {
                 animation: none;
                 transform: none;
             }
@@ -167,7 +245,7 @@
 
     <div class="content-card">
         <h2>队伍使命</h2>
-        <p class="highlight">"探索无限可能，用科技实现梦想（Infinite Dream）"</p>
+        <p class="highlight">"探索无限可能，用科技实现梦想"</p>
         <p>我们相信通过STEM教育和技术创新，可以：</p>
         <ul>
             <li>培养工程思维与创新能力</li>
@@ -179,9 +257,8 @@
 
     <div class="content-card">
         <h2>核心价值</h2>
-        <p>遵循FIRST精神（For Inspiration and Recognition of Science and Technology）（对科学、技术的灵感和认知）</p>
+        <p>遵循FIRST精神，我们秉持：</p>
         <ul>
-            <p>我们秉持:</p>
             <li>Discovery - 探索未知</li>
             <li>Innovation - 持续创新</li>
             <li>Impact - 创造价值</li>
@@ -204,6 +281,35 @@
             </li>
         </ul>
     </div>
+
+    <div class="content-card">
+        <h2>更多联系方式</h2>
+        <div class="social-images">
+            <div class="social-card">
+                <img src="assets/wechat-channel.png" 
+                     alt="微信视频号二维码" 
+                     class="social-img"
+                     onclick="openModal('assets/wechat-channel.png')">
+                <span class="social-label">微信视频号</span>
+            </div>
+
+            <div class="social-card">
+                <img src="assets/wechat-official.png" 
+                     alt="微信公众号二维码" 
+                     class="social-img"
+                     onclick="openModal('assets/wechat-official.png')">
+                <span class="social-label">微信公众号</span>
+            </div>
+
+            <div class="social-card">
+                <img src="assets/douyin.png" 
+                     alt="抖音二维码" 
+                     class="social-img"
+                     onclick="openModal('assets/douyin.png')">
+                <span class="social-label">抖音官方号</span>
+            </div>
+        </div>
+    </div>
     
     <div class="content-card">
         <h2>关注我们/Subscribe us</h2>
@@ -217,7 +323,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://www.youtube.com/@ftc28119id" 
+                <a href="https://www.youtube.com/@infinitedream-r7x" 
                    target="_blank" 
                    class="youtube-link"
                    aria-label="YouTube 官方频道">
@@ -226,5 +332,34 @@
             </li>
         </ul>
     </div>
+
+    <!-- 图片预览模态框 -->
+    <div id="previewModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // 打开模态框并显示图片
+        function openModal(imageSrc) {
+            const modal = document.getElementById('previewModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = imageSrc;
+        }
+
+        // 关闭模态框
+        function closeModal() {
+            document.getElementById('previewModal').style.display = 'none';
+        }
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
