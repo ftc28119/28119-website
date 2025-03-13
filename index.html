@@ -32,13 +32,10 @@
 
         /* 标题区域样式 */
         .header {
-            text-align: center;
+            display: flex;
+            align-items: center;
             padding: 30px;
             background-color: var(--primary-color);
-            background-image: url('assets/team-photo.jpg'); /* 团队合照 */
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay; /* 混合模式 */
             color: white;
             border-radius: 15px;
             margin: 20px auto 25px;
@@ -60,17 +57,59 @@
             z-index: 1;
         }
 
-        .header h1,
-        .header .team-number {
+        .header-content {
+            flex: 1;
+            text-align: right;
             position: relative;
             z-index: 2; /* 确保文字在遮罩上方 */
+            padding-left: 20px; /* 与图片的间距 */
         }
 
-        /* 图片优化 */
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .header .team-number {
+            font-size: 1.8em;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        .header-image {
+            width: 40%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            z-index: 2; /* 确保图片在遮罩上方 */
+        }
+
+        /* 响应式设计 */
         @media (max-width: 768px) {
             .header {
-                background-image: url('assets/team-photo-mobile.jpg'); /* 移动端专用图片 */
-                min-height: 150px; /* 移动端高度调整 */
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .header-content {
+                text-align: center;
+                padding-left: 0;
+                margin-top: 20px;
+            }
+
+            .header-image {
+                width: 80%;
+                max-width: none;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header .team-number {
+                font-size: 1.5em;
             }
         }
 
@@ -84,15 +123,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        h1 { font-size: 2.5em; }
         h2 { 
             color: var(--primary-color); 
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 5px; 
-        }
-        .team-number { 
-            font-size: 1.8em; 
-            letter-spacing: 3px; 
         }
         .highlight { 
             color: var(--accent-color); 
@@ -268,8 +302,11 @@
 <body>
     <!-- 页面内容 -->
     <div class="header" role="banner">
-        <h1 aria-label="队伍名称">Infinite Dream</h1>
-        <div class="team-number">FTC 28119</div>
+        <img src="assets/team-photo.jpg" alt="团队合照" class="header-image">
+        <div class="header-content">
+            <h1 aria-label="队伍名称">Infinite Dream</h1>
+            <div class="team-number">FTC 28119</div>
+        </div>
     </div>
 
     <div class="content-card">
