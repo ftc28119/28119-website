@@ -11,7 +11,7 @@
             --accent-color: #e74c3c;
             --bili-color: #00a1d6;
             --yt-color: #ff0000;
-            --scout-color: #281191;
+            --scout-color: #1e3799;
         }
 
         /* 基础样式 */
@@ -34,6 +34,7 @@
         .header {
             display: flex;
             align-items: center;
+            justify-content: center; /* 居中 */
             padding: 30px;
             background-color: var(--primary-color);
             color: white;
@@ -68,12 +69,14 @@
         .header h1 {
             margin: 0;
             font-size: 2.5em;
+            white-space: nowrap; /* 电脑端不换行 */
         }
 
         .header .team-number {
             font-size: 1.8em;
             letter-spacing: 3px;
             margin-top: 10px;
+            white-space: nowrap; /* 电脑端不换行 */
         }
 
         .header-image {
@@ -106,10 +109,12 @@
 
             .header h1 {
                 font-size: 2em;
+                white-space: normal; /* 移动端允许换行 */
             }
 
             .header .team-number {
                 font-size: 1.5em;
+                white-space: normal; /* 移动端允许换行 */
             }
         }
 
