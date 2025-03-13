@@ -30,17 +30,51 @@
             overflow-y: scroll;
         }
 
+        /* 标题区域样式 */
         .header {
             text-align: center;
             padding: 30px;
             background-color: var(--primary-color);
+            background-image: url('assets/team-photo.jpg'); /* 团队合照 */
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay; /* 混合模式 */
             color: white;
             border-radius: 15px;
             margin: 20px auto 25px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
             contain: content;
+            position: relative;
+            overflow: hidden;
+            min-height: 200px; /* 确保标题区域有足够高度 */
         }
 
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 55, 153, 0.6); /* 半透明遮罩 */
+            z-index: 1;
+        }
+
+        .header h1,
+        .header .team-number {
+            position: relative;
+            z-index: 2; /* 确保文字在遮罩上方 */
+        }
+
+        /* 图片优化 */
+        @media (max-width: 768px) {
+            .header {
+                background-image: url('assets/team-photo-mobile.jpg'); /* 移动端专用图片 */
+                min-height: 150px; /* 移动端高度调整 */
+            }
+        }
+
+        /* 内容卡片样式 */
         .content-card {
             background: rgba(255,255,255,0.8);
             padding: 25px;
@@ -283,7 +317,7 @@
     </div>
 
     <div class="content-card">
-        <h2>更多联系方式（点击图片可预览放大）</h2>
+        <h2>更多联系方式</h2>
         <div class="social-images">
             <div class="social-card">
                 <img src="assets/wechat-channel.png" 
