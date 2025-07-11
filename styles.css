@@ -1,303 +1,318 @@
-/* styles.css */
-
-/* CSS变量定义 */
-:root {
-    --primary-color: #1e3799;
-    --accent-color: #e74c3c;
-    --bili-color: #00a1d6;
-    --yt-color: #ff0000;
-    --scout-color: #1c3186;
-}
-
 /* 基础样式 */
 body {
-    position: relative;
-    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                url('assets/team-background.webp');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    overflow-y: scroll;
 }
 
-/* 标题区域样式 */
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* 居中 */
-    padding: 30px;
-    background-color: var(--primary-color);
+    background-color: #1e3799;
     color: white;
-    border-radius: 15px;
-    margin: 20px auto 25px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    contain: content;
-    position: relative;
-    overflow: hidden;
-    min-height: 200px; /* 确保标题区域有足够高度 */
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(30, 55, 153, 0.6); /* 半透明遮罩 */
-    z-index: 1;
-}
-
-.header-content {
-    text-align: right;
-    position: relative;
-    z-index: 2; /* 确保文字在遮罩上方 */
-    padding-left: 20px; /* 与图片的间距 */
-    flex: 1;
-    max-width: 50%; /* 限制标题区域宽度 */
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .header h1 {
     margin: 0;
     font-size: 2.5em;
-    white-space: nowrap; /* 电脑端不换行 */
 }
 
-.header .team-number {
-    font-size: 1.8em;
-    letter-spacing: 3px;
+.header p {
     margin-top: 10px;
-    white-space: nowrap; /* 电脑端不换行 */
+    font-size: 1.2em;
 }
 
-.header-image {
-    width: 40%;
-    max-width: 400px;
+/* 导航栏 */
+nav {
+    background-color: #3867d6;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #1e3799;
+    border-radius: 5px;
+}
+
+/* 内容卡片 */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    color: #1e3799;
+    margin-top: 0;
+    border-bottom: 2px solid #1e3799;
+    padding-bottom: 5px;
+}
+
+/* 六边形网格 */
+.hex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.hexagon {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 86.6%; /* 六边形高度与宽度的比例 */
+    background-color: #3867d6;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.hexagon:hover {
+    transform: scale(1.05);
+    background-color: #1e3799;
+}
+
+.hexagon-content {
+    text-align: center;
+    padding: 10px;
+}
+
+/* 图片展示 */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.image-gallery img {
+    width: 100%;
+    max-width: 300px;
     height: auto;
-    border-radius: 10px;
-    z-index: 2; /* 确保图片在遮罩上方 */
-    flex: 1;
-    max-width: 50%; /* 限制图片区域宽度 */
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        min-height: auto;
-    }
-
-    .header-content {
-        text-align: center;
-        padding-left: 0;
-        margin-top: 20px;
-        max-width: 100%; /* 移动端标题区域占满宽度 */
-    }
-
-    .header-image {
-        width: 80%;
-        max-width: none;
-    }
-
-    .header h1 {
-        font-size: 2em;
-        white-space: normal; /* 移动端允许换行 */
-    }
-
-    .header .team-number {
-        font-size: 1.5em;
-        white-space: normal; /* 移动端允许换行 */
-    }
+.image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* 内容卡片样式 */
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes shine {
+    from { background-position: -100px; }
+    to { background-position: calc(100% + 100px); }
+}
+
+/* 应用到现有元素的动画 */
+.header {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
 .content-card {
-    background: rgba(255,255,255,0.8);
-    padding: 25px;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-h2 { 
-    color: var(--primary-color); 
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 5px; 
-}
-.highlight { 
-    color: var(--accent-color); 
-    font-weight: bold; 
+.content-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* 社交媒体动画样式 */
-.social-links {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 20px;
+.content-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e74c3c;
+    transition: width 0.4s ease;
+}
+
+.content-card:hover h2::after {
+    width: 100%;
 }
 
 .social-links li {
-    margin: 15px 0;
-    padding: 12px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    transition: 0.3s all ease;
+    transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
+}
+
+.social-links li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(30, 55, 153, 0.05), transparent);
+    transition: all 0.6s ease;
 }
 
 .social-links li:hover {
-    animation: neonPulse 1.2s ease-in-out infinite;
-    transform: perspective(100px) translateZ(5px);
-    cursor: pointer;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* 链接动画样式 */
-.bilibili-link { color: var(--bili-color); }
-.youtube-link { color: var(--yt-color); }
-.scout-link { 
-    color: var(--scout-color) !important; 
-    text-decoration: none;
-    display: block;
+.social-links li:hover::before {
+    left: 100%;
 }
 
-.bilibili-link:hover {
-    animation: biliColor 1.5s infinite;
-    text-shadow: 0 0 10px rgba(0, 161, 214, 0.7);
+.bilibili-link, .youtube-link, .scout-link {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.youtube-link:hover {
-    animation: youtubeColor 1.5s infinite;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+.bilibili-link:hover, .youtube-link:hover, .scout-link:hover {
+    transform: translateY(-2px);
 }
 
-.scout-link:hover {
-    animation: scoutColor 1.5s infinite;
-    text-shadow: 0 0 10px rgba(30, 55, 153, 0.7);
+.bilibili-link::after, .youtube-link::after, .scout-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
 }
 
-/* 新增图片社交样式 */
-.social-images {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
+.bilibili-link::after { background-color: #00a1d6; }
+.youtube-link::after { background-color: #ff0000; }
+.scout-link::after { background-color: #1c3186; }
 
-.social-card {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 10px;
-    transition: 0.3s all ease;
-    text-align: center;
-    min-width: 150px;
-}
-
-.social-card:hover {
-    animation: neonPulse 1.2s ease-in-out infinite;
-    transform: perspective(100px) translateZ(5px);
-    cursor: pointer;
+.bilibili-link:hover::after, .youtube-link:hover::after, .scout-link:hover::after {
+    width: 100%;
 }
 
 .social-img {
-    width: 120px;
-    height: auto;
-    display: block;
-    margin: 0 auto 8px;
-    border-radius: 8px;
-    cursor: pointer;
+    transition: all 0.4s ease;
 }
 
-.social-label {
-    color: var(--primary-color);
-    font-size: 0.95em;
-    font-weight: 500;
-    display: block;
+.social-img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* 图片预览模态框样式 */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    justify-content: center;
-    align-items: center;
+/* 为六边形网格添加动画 */
+.hexagon {
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+.hexagon:hover {
+    transform: translateY(-10px) scale(1.03);
+    z-index: 10;
 }
 
-.close {
+.hexagon::before {
+    content: '';
     position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 5s infinite linear;
 }
 
-.close:hover {
-    color: var(--accent-color);
-}
-
-/* 动画关键帧 */
-@keyframes neonPulse {
-    0%, 100% { box-shadow: 0 0 5px rgba(0, 174, 239, 0.3); }
-    50% { box-shadow: 0 0 15px rgba(0, 174, 239, 0.6); }
-}
-
-@keyframes biliColor {
-    0%, 100% { color: var(--bili-color); }
-    50% { color: var(--primary-color); }
-}
-
-@keyframes youtubeColor {
-    0%, 100% { color: var(--yt-color); }
-    50% { color: #c0392b; }
-}
-
-@keyframes scoutColor {
-    0%, 100% { color: var(--scout-color); }
-    50% { color: #4a69bd; }
-}
-
-/* 响应式设计 */
+/* 响应式调整 */
 @media (max-width: 768px) {
-    h1 { font-size: 2em; }
-    .content-card { padding: 15px; }
-    .social-images { gap: 20px; }
-    .social-img { width: 100px; }
-}
-
-/* 动画降级 */
-@media (prefers-reduced-motion: reduce) {
-    .social-links li:hover, .social-card:hover {
-        animation: none;
-        transform: none;
+    .content-card {
+        margin: 15px auto;
     }
-}
-
-/* 浏览器前缀兼容 */
-@-webkit-keyframes neonPulse {
-    0%, 100% { box-shadow: 0 0 5px rgba(0, 174, 239, 0.3); }
-    50% { box-shadow: 0 0 15px rgba(0, 174, 239, 0.6); }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .hex-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }

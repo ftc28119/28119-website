@@ -1,48 +1,304 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Dream - FTC 28119</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>FTC 28119 & 30222 - Infinite Dream & Navigators</title>
+    <style>
+        /* 基础样式 */
+        body {
+            position: relative;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                        url('assets/team-background.webp');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            overflow-y: scroll;
+        }
+
+        /* 标题区域样式 */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background-color: #1e3799;
+            color: white;
+            border-radius: 15px;
+            margin: 20px auto 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            contain: content;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/header-pattern.svg');
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .header .team-number {
+            font-size: 1.8em;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        /* 内容卡片样式 */
+        .content-card {
+            background: rgba(255,255,255,0.8);
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .content-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 { 
+            color: #1e3799; 
+            border-bottom: 2px solid #1e3799;
+            padding-bottom: 5px; 
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e74c3c;
+            transition: width 0.4s ease;
+        }
+
+        .content-card:hover h2::after {
+            width: 100%;
+        }
+
+        .highlight { 
+            color: #e74c3c; 
+            font-weight: bold; 
+        }
+
+        /* 社交媒体链接样式 */
+        .social-links {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        .social-links li {
+            margin: 15px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 55, 153, 0.05), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .social-links li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .social-links li:hover::before {
+            left: 100%;
+        }
+
+        .bilibili-link { color: #00a1d6; }
+        .youtube-link { color: #ff0000; }
+        .scout-link { color: #1c3186; }
+
+        .bilibili-link, .youtube-link, .scout-link {
+            display: inline-block;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .bilibili-link:hover, .youtube-link:hover, .scout-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .bilibili-link::after, .youtube-link::after, .scout-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .bilibili-link::after { background-color: #00a1d6; }
+        .youtube-link::after { background-color: #ff0000; }
+        .scout-link::after { background-color: #1c3186; }
+
+        .bilibili-link:hover::after, .youtube-link:hover::after, .scout-link:hover::after {
+            width: 100%;
+        }
+
+        /* 图片社交样式 */
+        .social-images {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-img {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto 8px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+        }
+
+        .social-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-label {
+            color: #1e3799;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        /* 团队照片样式 */
+        .team-photo-container {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .team-photo-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-photo {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s ease;
+        }
+
+        .team-photo:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .content-card { padding: 15px; }
+            .social-images { gap: 20px; }
+            .social-img { width: 100px; }
+        }
+    </style>
 </head>
 <body>
     <!-- 页面内容 -->
     <div class="header" role="banner">
-        <img src="assets/team-photo.jpg" alt="团队合照" class="header-image">
         <div class="header-content">
-            <h1 aria-label="队伍名称">Infinite Dream&Navigators</h1>
-            <div class="team-number">FTC 28119&30222</div>
+            <h1>FTC 16093</h1>
+            <div class="team-number">Infinite Dream & Navigators</div>
         </div>
     </div>
 
     <div class="content-card">
         <h2>关于我们</h2>
-        <p>我们是来自北京第一实验学校（Beijing Navigation School）的FTC队伍，自2024年10月成立以来，始终致力于将科技创新与团队合作相结合，在FIRST Tech Challenge的舞台上追求卓越。</p>
+        <p>我们是来自中国北京（BJ-CHINA）的FTC队伍28119 & 30222 - Infinite Dream & Navigators，自2024年10月成立以来，始终致力于将科技创新与团队合作相结合，在FIRST Tech Challenge的舞台上追求卓越。</p>
     </div>
 
     <div class="content-card">
         <h2>队伍使命</h2>
-        <p class="highlight">"探索无限可能，用科技实现梦想"</p>
+        <p class="highlight">"发现问题，探索可能，用科技创造美好未来"</p>
         <p>我们相信通过STEM教育和技术创新，可以：</p>
         <ul>
-            <li>培养工程思维与创新能力</li>
-            <li>践行FIRST核心价值观</li>
-            <li>用技术解决实际问题</li>
-            <li>建立包容互助的学习社区</li>
+            <li>培养批判性思维和解决问题的能力</li>
+            <li>践行团队合作和沟通的重要性</li>
+            <li>用技术解决实际社会问题</li>
+            <li>建立积极向上的科技学习社区</li>
         </ul>
     </div>
 
     <div class="content-card">
         <h2>核心价值</h2>
-        <p>遵循FIRST精神，我们秉持：</p>
+        <p>遵循FIRST的核心价值观，我们秉持：</p>
         <ul>
-            <li>Discovery - 探索未知</li>
-            <li>Innovation - 持续创新</li>
-            <li>Impact - 创造价值</li>
-            <li>Teamwork - 协同合作</li>
-            <li>Fun - 享受过程</li>
+            <li>发现 - 好奇心驱动我们探索未知</li>
+            <li>创新 - 用创意解决挑战</li>
+            <li>影响 - 用技术改变世界</li>
+            <li>包容 - 接纳不同背景和观点</li>
+            <li>团队 - 协作成就非凡</li>
+            <li>乐趣 - 享受探索科技的过程</li>
         </ul>
     </div>
 
@@ -53,9 +309,9 @@
                 <a href="https://ftcscout.org/teams" 
                    target="_blank" 
                    class="scout-link"
-                   title="可搜索28119&30222查看完整赛事数据"
+                   title="可搜索28119&30222查看完整数据，目前无法搜索到30222"
                    aria-label="FTC Scout赛事数据">
-                    可搜索28119&30222查看完整赛事数据（暂无法搜索到30222）
+                   FTC Scout赛事数据（可搜索28119&30222查看完整数据，目前无法搜索到30222）
                 </a>
             </li>
         </ul>
@@ -65,42 +321,27 @@
         <h2>更多联系方式</h2>
         <div class="social-images">
             <div class="social-card">
-                <img src="assets/wechat-channel.png" 
-                     alt="微信视频号二维码" 
-                     class="social-img"
-                     onclick="openModal('assets/wechat-channel.png')">
+                <img src="assets/wechat-channel.png" alt="微信视频号二维码" class="social-img">
                 <span class="social-label">微信视频号</span>
             </div>
 
             <div class="social-card">
-                <img src="assets/wechat-official.png" 
-                     alt="微信公众号二维码" 
-                     class="social-img"
-                     onclick="openModal('assets/wechat-official.png')">
+                <img src="assets/wechat-official.png" alt="微信公众号二维码" class="social-img">
                 <span class="social-label">微信公众号</span>
             </div>
 
             <div class="social-card">
-                <img src="assets/douyin.png" 
-                     alt="抖音二维码" 
-                     class="social-img"
-                     onclick="openModal('assets/douyin.png')">
+                <img src="assets/douyin.png" alt="抖音二维码" class="social-img">
                 <span class="social-label">抖音官方号</span>
             </div>
 
             <div class="social-card">
-                <img src="assets/weixinhao.png" 
-                     alt="官方微信" 
-                     class="social-img"
-                     onclick="openModal('assets/weixinhao.png')">
+                <img src="assets/weixinhao.png" alt="官方微信" class="social-img">
                 <span class="social-label">官方微信（备注来意）</span>
             </div>
 
             <div class="social-card">
-                <img src="assets/yt.png" 
-                     alt="官方YouTube" 
-                     class="social-img"
-                     onclick="openModal('assets/yt.png')">
+                <img src="assets/yt.png" alt="官方YouTube" class="social-img">
                 <span class="social-label">官方YouTube</span>
             </div>
         </div>
@@ -118,30 +359,83 @@
                 </a>
             </li>
             <li>
-                <a href="https://www.youtube.com/@ftc28119id" 
+                <a href="https://www.youtube.com/@FTC28119" 
                    target="_blank" 
                    class="youtube-link"
                    aria-label="YouTube 官方频道">
                     YouTube 官方频道/YouTube
                 </a>
             </li>
-            <li>
-                <a href="https://www.instagram.com/infinite_dream28119?igsh=M201OHJsNno1MW4x" 
-                   target="_blank" 
-                   class="instagram-link"
-                   aria-label="Instagram 官方频道">
-                    Instagram 官方主页/Instagram
-                </a>
-            </li>
         </ul>
     </div>
 
-    <!-- 图片预览模态框 -->
-    <div id="previewModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
+    <!-- 团队照片移到页面下端 -->
+    <div class="team-photo-container">
+        <img src="assets/team-photo.jpg" alt="团队合照" class="team-photo">
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 滚动动画
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // 只观察一次
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有内容卡片
+            document.querySelectorAll('.content-card').forEach(function(card) {
+                observer.observe(card);
+            });
+            
+            // 观察团队照片
+            observer.observe(document.querySelector('.team-photo-container'));
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 50,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 导航栏滚动效果
+            const header = document.querySelector('.header');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // 向下滚动且滚动距离足够
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // 向上滚动
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
 </body>
 </html>
