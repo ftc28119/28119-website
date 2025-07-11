@@ -22,7 +22,7 @@
         }
 
         /* 标题区域样式 */
-        。header {
+        .header {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -38,7 +38,7 @@
             transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
-        。header::before {
+        .header::before {
             content: '';
             position: absolute;
             top: 0;
@@ -50,26 +50,26 @@
             z-index: 1;
         }
 
-        。header-content {
+        .header-content {
             text-align: center;
             position: relative;
             z-index: 2;
             padding: 0;
         }
 
-        。header h1 {
+        .header h1 {
             margin: 0;
             font-size: 2.5em;
         }
 
-        。header .team-number {
+        .header .team-number {
             font-size: 1.8em;
             letter-spacing: 3px;
             margin-top: 10px;
         }
 
         /* 内容卡片样式 */
-        。content-card {
+        .content-card {
             background: rgba(255,255,255,0.8);
             padding: 25px;
             margin: 20px auto;
@@ -81,7 +81,7 @@
             transform: translateY(20px);
         }
 
-        。content-card.visible {
+        .content-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -105,23 +105,23 @@
             transition: width 0.4s ease;
         }
 
-        。content-card:hover h2::after {
+        .content-card:hover h2::after {
             width: 100%;
         }
 
-        。highlight { 
+        .highlight { 
             color: #e74c3c; 
             font-weight: bold; 
         }
 
         /* 社交媒体链接样式 */
-        。social-links {
+        .social-links {
             list-style: none;
             padding-left: 0;
             margin-top: 20px;
         }
 
-        。social-links li {
+        .social-links li {
             margin: 15px 0;
             padding: 12px;
             background: #f8f9fa;
@@ -267,7 +267,7 @@
     <!-- 页面内容 -->
     <div class="header" role="banner">
         <div class="header-content">
-            <h1>FTC 28119 & 30222</h1>
+            <h1>FTC28119&30222</h1>
             <div class="team-number">Infinite Dream & Navigators</div>
         </div>
     </div>
