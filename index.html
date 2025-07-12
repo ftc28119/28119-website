@@ -103,6 +103,14 @@
         nav#navbar {
             backdrop-filter: blur(8px);
             box-shadow: 0 2px 16px rgba(30, 55, 153, 0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        nav#navbar.scrolled {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        nav#navbar.scrolled img {
+            height: 2.5rem;
         }
         @media (max-width: 768px) {
             #contact .grid-cols-3 {
@@ -595,6 +603,16 @@
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
                 }, 1000);
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
     </script>
