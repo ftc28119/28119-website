@@ -89,3 +89,79 @@ window.addEventListener('scroll', function() {
         navbar.classList.remove('scrolled');
     }
 });
+
+// 赛季切换功能
+// 桌面端
+const seasonToggle = document.getElementById('season-toggle');
+const seasonDropdown = document.getElementById('season-dropdown');
+const currentSeasonBtn = document.getElementById('current-season');
+const nextSeasonBtn = document.getElementById('next-season');
+const season20252026 = document.getElementById('season-2025-2026');
+const backToCurrentSeasonBtn = document.getElementById('back-to-current-season');
+
+// 移动端
+const mobileSeasonToggle = document.getElementById('mobile-season-toggle');
+const mobileSeasonDropdown = document.getElementById('mobile-season-dropdown');
+const mobileCurrentSeasonBtn = document.getElementById('mobile-current-season');
+const mobileNextSeasonBtn = document.getElementById('mobile-next-season');
+
+// 桌面端下拉菜单
+seasonToggle.addEventListener('click', function() {
+    seasonDropdown.classList.toggle('hidden');
+});
+
+// 移动端下拉菜单
+mobileSeasonToggle.addEventListener('click', function() {
+    mobileSeasonDropdown.classList.toggle('hidden');
+    const icon = this.querySelector('i');
+    icon.classList.toggle('rotate-180');
+});
+
+// 点击页面其他地方关闭下拉菜单
+document.addEventListener('click', function(event) {
+    if (!seasonToggle.contains(event.target) && !seasonDropdown.contains(event.target)) {
+        seasonDropdown.classList.add('hidden');
+    }
+    
+    if (!mobileSeasonToggle.contains(event.target) && !mobileSeasonDropdown.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileSeasonDropdown.classList.add('hidden');
+        const mobileIcon = mobileSeasonToggle.querySelector('i');
+        mobileIcon.classList.remove('rotate-180');
+    }
+});
+
+// 切换到2025-2026赛季
+function showNextSeason() {
+    // 添加淡入动画
+    season20252026.style.opacity = '0';
+    season20252026.classList.remove('hidden');
+    
+    // 触发重排
+    season20252026.offsetWidth;
+    
+    // 应用动画
+    season20252026.style.transition = 'opacity 0.5s ease-out';
+    season20252026.style.opacity = '1';
+    
+    // 让页面自己处理滚动
+}
+
+// 返回当前赛季
+function showCurrentSeason() {
+    // 添加淡出动画
+    season20252026.style.transition = 'opacity 0.5s ease-out';
+    season20252026.style.opacity = '0';
+    
+    // 等待动画完成后隐藏
+    setTimeout(() => {
+        season20252026.classList.add('hidden');
+    }, 500);
+}
+
+// 添加事件监听
+nextSeasonBtn.addEventListener('click', showNextSeason);
+mobileNextSeasonBtn.addEventListener('click', showNextSeason);
+currentSeasonBtn.addEventListener('click', showCurrentSeason);
+mobileCurrentSeasonBtn.addEventListener('click', showCurrentSeason);
+
+// 倒计时功能
