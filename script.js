@@ -143,8 +143,38 @@ function showNextSeason() {
     season20252026.style.transition = 'opacity 0.5s ease-out';
     season20252026.style.opacity = '1';
     
-    // 让页面自己处理滚动
-}
+    // 滚动到新赛季顶部，确保导航链接正常工作
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // 重新绑定所有导航链接的点击事件，确保新赛季的链接可以正常工作
+    setTimeout(() => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // 移除旧的事件监听器（为了避免重复绑定）
+            const newAnchor = anchor.cloneNode(true);
+            anchor.parentNode.replaceChild(newAnchor, anchor);
+            
+            // 重新添加平滑滚动事件监听
+            newAnchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 如果是移动端，点击后关闭菜单
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    }, 100);
 
 // 返回当前赛季
 function showCurrentSeason() {
