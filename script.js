@@ -136,30 +136,68 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileName = currentPath.split('/').pop().toLowerCase();
     
     // 使用更健壮的方法检查当前是否为英文版页面
-    // 1. 检查URL中是否包含英文文件名
-    // 2. 检查当前文件名是否直接匹配英文文件名
     const isEnglishVersion = 
         currentUrl.toLowerCase().includes('dive-eng.html') || 
         currentUrl.toLowerCase().includes('age-eng.html') ||
         fileName === 'dive-eng.html' ||
         fileName === 'age-eng.html';
     
+    // 获取网站的基础路径（适用于任何部署环境）
+    function getBasePath() {
+        // 获取当前脚本的路径
+        const scripts = document.getElementsByTagName('script');
+        const scriptPath = scripts[scripts.length - 1].src;
+        const basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
+        return basePath;
+    }
+    
+    const basePath = getBasePath();
+    
+    // 定义赛季链接（使用相对路径，确保在任何环境下都能正确工作）
+    const currentSeasonLink = isEnglishVersion ? 'dive-Eng.html' : 'index.html';
+    const nextSeasonLink = isEnglishVersion ? 'age-Eng.html' : 'season-2025-2026.html';
+    
     // 更新桌面端赛季切换链接
     if (currentSeasonBtn) {
-        currentSeasonBtn.href = isEnglishVersion ? 'dive-Eng.html' : 'index.html';
+        // 使用相对路径，确保在网络环境中也能正确工作
+        currentSeasonBtn.href = currentSeasonLink;
     }
     
     if (nextSeasonBtn) {
-        nextSeasonBtn.href = isEnglishVersion ? 'age-Eng.html' : 'season-2025-2026.html';
+        nextSeasonBtn.href = nextSeasonLink;
     }
     
     // 更新移动端赛季切换链接
     if (mobileCurrentSeasonBtn) {
-        mobileCurrentSeasonBtn.href = isEnglishVersion ? 'dive-Eng.html' : 'index.html';
+        mobileCurrentSeasonBtn.href = currentSeasonLink;
     }
     
     if (mobileNextSeasonBtn) {
-        mobileNextSeasonBtn.href = isEnglishVersion ? 'age-Eng.html' : 'season-2025-2026.html';
+        mobileNextSeasonBtn.href = nextSeasonLink;
+    }
+    
+    // 确保赛季按钮的文本内容与当前页面匹配
+    // 这可以防止在某些情况下文本内容显示不正确
+    if (fileName === 'index.html' || fileName === 'dive-eng.html') {
+        // 当前是旧赛季页面
+        if (currentSeasonBtn) {
+            currentSeasonBtn.classList.add('bg-accent/20');
+            nextSeasonBtn.classList.remove('bg-accent/20');
+        }
+        if (mobileCurrentSeasonBtn) {
+            mobileCurrentSeasonBtn.classList.add('bg-accent/20');
+            mobileNextSeasonBtn.classList.remove('bg-accent/20');
+        }
+    } else if (fileName === 'season-2025-2026.html' || fileName === 'age-eng.html') {
+        // 当前是新赛季页面
+        if (currentSeasonBtn) {
+            currentSeasonBtn.classList.remove('bg-accent/20');
+            nextSeasonBtn.classList.add('bg-accent/20');
+        }
+        if (mobileCurrentSeasonBtn) {
+            mobileCurrentSeasonBtn.classList.remove('bg-accent/20');
+            mobileNextSeasonBtn.classList.add('bg-accent/20');
+        }
     }
 });
 
