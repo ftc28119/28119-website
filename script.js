@@ -96,8 +96,6 @@ const seasonToggle = document.getElementById('season-toggle');
 const seasonDropdown = document.getElementById('season-dropdown');
 const currentSeasonBtn = document.getElementById('current-season');
 const nextSeasonBtn = document.getElementById('next-season');
-const season20252026 = document.getElementById('season-2025-2026');
-const backToCurrentSeasonBtn = document.getElementById('back-to-current-season');
 
 // 移动端
 const mobileSeasonToggle = document.getElementById('mobile-season-toggle');
@@ -130,68 +128,25 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// 切换到2025-2026赛季
-function showNextSeason() {
-    // 添加淡入动画
-    season20252026.style.opacity = '0';
-    season20252026.classList.remove('hidden');
+// 设置赛季切换链接的正确跳转目标
+document.addEventListener('DOMContentLoaded', function() {
+    // 更新桌面端赛季切换链接
+    if (currentSeasonBtn) {
+        currentSeasonBtn.href = 'index.html';
+    }
     
-    // 触发重排
-    season20252026.offsetWidth;
+    if (nextSeasonBtn) {
+        nextSeasonBtn.href = 'season-2025-2026.html';
+    }
     
-    // 应用动画
-    season20252026.style.transition = 'opacity 0.5s ease-out';
-    season20252026.style.opacity = '1';
+    // 更新移动端赛季切换链接
+    if (mobileCurrentSeasonBtn) {
+        mobileCurrentSeasonBtn.href = 'index.html';
+    }
     
-    // 滚动到新赛季顶部，确保导航链接正常工作
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // 重新绑定所有导航链接的点击事件，确保新赛季的链接可以正常工作
-    setTimeout(() => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            // 移除旧的事件监听器（为了避免重复绑定）
-            const newAnchor = anchor.cloneNode(true);
-            anchor.parentNode.replaceChild(newAnchor, anchor);
-            
-            // 重新添加平滑滚动事件监听
-            newAnchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // 如果是移动端，点击后关闭菜单
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-    }, 100);
-
-// 返回当前赛季
-function showCurrentSeason() {
-    // 添加淡出动画
-    season20252026.style.transition = 'opacity 0.5s ease-out';
-    season20252026.style.opacity = '0';
-    
-    // 等待动画完成后隐藏
-    setTimeout(() => {
-        season20252026.classList.add('hidden');
-    }, 500);
-}
-
-// 添加事件监听
-nextSeasonBtn.addEventListener('click', showNextSeason);
-mobileNextSeasonBtn.addEventListener('click', showNextSeason);
-currentSeasonBtn.addEventListener('click', showCurrentSeason);
-mobileCurrentSeasonBtn.addEventListener('click', showCurrentSeason);
+    if (mobileNextSeasonBtn) {
+        mobileNextSeasonBtn.href = 'season-2025-2026.html';
+    }
+});
 
 // 倒计时功能

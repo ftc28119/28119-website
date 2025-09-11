@@ -94,11 +94,30 @@ nav#navbar {
     transform: translateX(2px);
 }
 
-/* 2025-2026赛季占位页动画和滚动设置 */
+/* 2025-2026赛季占位页 */
 #season-2025-2026 {
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-in-out;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 40;
+}
+
+/* 为2025-2026赛季创建一个特殊的body状态类 */
+body.season-2025-2026-active {
+    overflow: hidden;
+}
+
+/* 确保导航栏固定在顶部 */
+#season-2025-2026 nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 
 @keyframes fadeIn {
