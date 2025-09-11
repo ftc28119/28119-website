@@ -137,14 +137,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 使用更健壮的方法检查当前是否为英文版页面
     const isEnglishVersion = 
-        currentUrl.includes('dive-eng.html') || 
-        currentUrl.includes('age-eng.html') ||
-        fileName === 'dive-eng.html' ||
-        fileName === 'age-eng.html';
+        currentUrl.includes('in-to-the-deep-eng.html') || 
+        currentUrl.includes('decode-eng.html') ||
+        fileName === 'in-to-the-deep-eng.html' ||
+        fileName === 'decode-eng.html';
     
     // 确保赛季按钮的文本内容与当前页面匹配
     // 这可以防止在某些情况下文本内容显示不正确
-    if (fileName === 'index.html' || fileName === 'dive-eng.html') {
+    if (fileName === 'index.html' || fileName === 'in-to-the-deep-eng.html') {
         // 当前是旧赛季页面
         if (currentSeasonBtn) {
             currentSeasonBtn.classList.add('bg-accent/20');
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileCurrentSeasonBtn.classList.add('bg-accent/20');
             mobileNextSeasonBtn.classList.remove('bg-accent/20');
         }
-    } else if (fileName === 'season-2025-2026.html' || fileName === 'age-eng.html') {
+    } else if (fileName === 'decode-CN.html' || fileName === 'decode-eng.html') {
         // 当前是新赛季页面
         if (currentSeasonBtn) {
             currentSeasonBtn.classList.remove('bg-accent/20');

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <!-- Tailwind配置 -->
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -32,12 +32,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gradient-to-br from-[#1e3799] to-white min-h-screen text-dark font-sans">
-    <!-- 加载动画 -->
+    <!-- Loading Animation -->
     <div id="loading-screen">
         <div class="spinner"></div>
     </div>
 
-    <!-- 导航栏 -->
+    <!-- Navigation Bar -->
     <nav id="navbar" class="fixed w-full bg-primary/95 text-white z-50 transition-all duration-300">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-3">
@@ -48,31 +48,31 @@
                     </a>
                 </div>
                 
-                <!-- 桌面端菜单 -->
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-accent transition-colors duration-300">首页</a>
-                    <a href="#about" class="hover:text-accent transition-colors duration-300">关于我们</a>
-                    <a href="#mission" class="hover:text-accent transition-colors duration-300">队伍使命</a>
-                    <a href="#values" class="hover:text-accent transition-colors duration-300">核心价值</a>
-                    <a href="#news" class="hover:text-accent transition-colors duration-300">近期动态</a>
-                    <a href="#contact" class="hover:text-accent transition-colors duration-300">联系我们</a>
+                    <a href="#home" class="hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="#about" class="hover:text-accent transition-colors duration-300">About Us</a>
+                    <a href="#mission" class="hover:text-accent transition-colors duration-300">Team Mission</a>
+                    <a href="#values" class="hover:text-accent transition-colors duration-300">Core Values</a>
+                    <a href="#news" class="hover:text-accent transition-colors duration-300">Latest News</a>
+                    <a href="#contact" class="hover:text-accent transition-colors duration-300">Contact</a>
                     <div class="relative group">
                         <button id="season-toggle" class="flex items-center hover:text-accent transition-colors duration-300">
-                            赛季切换
+                            Season Switch
                             <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
                         <div id="season-dropdown" class="absolute right-0 mt-2 w-48 bg-primary/95 rounded-lg shadow-xl hidden z-50">
-                            <a href="index.html" id="current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm bg-accent/20">2024-2025赛季 (当前)</a>
-                            <a href="decode-CN.html" id="next-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2025-2026赛季</a>
+                            <a href="in-to-the-deep-Eng.html" id="current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm bg-accent/20">2024-2025 Season (Current)</a>
+                            <a href="decode-Eng.html" id="next-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2025-2026 Season</a>
                         </div>
                     </div>
-                    <a href="in-to-the-deep-Eng.html" id="english-toggle" class="flex items-center hover:text-accent transition-colors duration-300">
-                        English
+                    <a href="index.html" id="chinese-toggle" class="flex items-center hover:text-accent transition-colors duration-300">
+                        中文版
                         <i class="fa-solid fa-language ml-1 text-xs"></i>
                     </a>
                 </div>
                 
-                <!-- 移动端菜单按钮 -->
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="menu-toggle" class="text-white focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -80,33 +80,33 @@
                 </div>
             </div>
             
-            <!-- 移动端菜单 -->
-                    <div id="mobile-menu" class="hidden md:hidden py-4 bg-primary/90 rounded-b-lg">
-                        <a href="#home" class="block py-2 hover:text-accent transition-colors duration-300">首页</a>
-                        <a href="#about" class="block py-2 hover:text-accent transition-colors duration-300">关于我们</a>
-                        <a href="#mission" class="block py-2 hover:text-accent transition-colors duration-300">队伍使命</a>
-                        <a href="#values" class="block py-2 hover:text-accent transition-colors duration-300">核心价值</a>
-                        <a href="#news" class="block py-2 hover:text-accent transition-colors duration-300">近期动态</a>
-                        <a href="#contact" class="block py-2 hover:text-accent transition-colors duration-300">联系我们</a>
-                    <div class="relative">
-                        <button id="mobile-season-toggle" class="flex items-center justify-between w-full text-left px-0 py-2 hover:text-accent transition-colors duration-300">
-                            赛季切换
-                            <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300"></i>
-                        </button>
-                        <div id="mobile-season-dropdown" class="hidden mt-1 bg-primary/95 rounded-lg">
-                            <a href="index.html" id="mobile-current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm bg-accent/20">2024-2025赛季 (当前)</a>
-                            <a href="decode-CN.html" id="mobile-next-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2025-2026赛季</a>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 bg-primary/90 rounded-b-lg">
+                <a href="#home" class="block py-2 hover:text-accent transition-colors duration-300">Home</a>
+                <a href="#about" class="block py-2 hover:text-accent transition-colors duration-300">About Us</a>
+                <a href="#mission" class="block py-2 hover:text-accent transition-colors duration-300">Team Mission</a>
+                <a href="#values" class="block py-2 hover:text-accent transition-colors duration-300">Core Values</a>
+                <a href="#news" class="block py-2 hover:text-accent transition-colors duration-300">Latest News</a>
+                <a href="#contact" class="block py-2 hover:text-accent transition-colors duration-300">Contact</a>
+                <div class="relative">
+                    <button id="mobile-season-toggle" class="flex items-center justify-between w-full text-left px-0 py-2 hover:text-accent transition-colors duration-300">
+                        Season Switch
+                        <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-season-dropdown" class="hidden mt-1 bg-primary/95 rounded-lg">
+                        <a href="in-to-the-deep-Eng.html" id="mobile-current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm bg-accent/20">2024-2025 Season (Current)</a>
+                            <a href="decode-Eng.html" id="mobile-next-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2025-2026 Season</a>
                         </div>
                     </div>
-                    <a href="in-to-the-deep-Eng.html" id="mobile-english-toggle" class="block py-2 hover:text-accent transition-colors duration-300 flex items-center">
-                        English
+                    <a href="index.html" id="mobile-chinese-toggle" class="block py-2 hover:text-accent transition-colors duration-300 flex items-center">
+                        中文版
                         <i class="fa-solid fa-language ml-1 text-xs"></i>
                     </a>
                 </div>
         </div>
     </nav>
 
-    <!-- 标题区域 -->
+    <!-- Hero Section -->
     <header id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-transparent text-white overflow-hidden">
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
@@ -117,75 +117,75 @@
                         FTC 30222<br><span class="text-accent">Navigators</span>
                     </h1>
                     <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 max-w-xl text-balance text-center">
-                        我们是来自中国北京的两支FTC机器人竞赛队伍，致力于通过创新与协作，在机器人领域探索无限可能。
+                        We are two FTC robotics teams from Beijing, China, dedicated to exploring infinite possibilities in robotics through innovation and collaboration.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
                         <a href="#contact" class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
-                            联系我们
+                            Contact Us
                         </a>
                         <a href="#about" class="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
-                            了解我们
+                            Learn About Us
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2">
                     <div class="relative">
-                        <img src="assets/robot.png" alt="FTC机器人照片" class="rounded-lg" loading="lazy">
+                        <img src="assets/robot.png" alt="FTC Robot Photo" class="rounded-lg" loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
     </header>
     
-    <!-- 2025-2026赛季内容已迁移到独立文件 -->
-    <!-- 内容区域 -->
+    <!-- Content for 2025-2026 season has been moved to a separate file -->
+    <!-- Main Content -->
     <main class="container mx-auto px-4 py-16">
-        <!-- 关于我们 -->
+        <!-- About Us -->
         <section id="about" class="mb-20 scroll-mt-24">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
-                    关于我们
+                    About Us
                     <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
                     <p class="text-lg text-balance">
-                        我们是来自中国北京（BJ-CHINA）的FTC队伍28119 & 30222 - Infinite Dream & Navigators，自2024年10月成立以来，始终致力于将科技创新与团队合作相结合，在FIRST Tech Challenge的舞台上追求卓越。
+                        We are FTC teams 28119 & 30222 - Infinite Dream & Navigators from Beijing, China. Since our establishment in October 2024, we have been committed to combining technological innovation with teamwork, striving for excellence in the FIRST Tech Challenge.
                     </p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
                         <div class="bg-light p-6 rounded-xl">
                             <h3 class="text-xl font-semibold text-primary mb-3 flex items-center">
                                 <i class="fa-solid fa-users text-primary mr-3 text-xl"></i>
-                                团队构成
+                                Team Composition
                             </h3>
-                            <p>由15名热爱科技与创新的中学生和2名亲切的指导老师组成，涵盖编程、机械设计、电子工程、策略分析等多个领域。</p>
+                            <p>Our team consists of 15 tech and innovation-loving middle school students and 2 supportive instructors, covering programming, mechanical design, electronic engineering, strategy analysis, and other fields.</p>
                         </div>
                         
                         <div class="bg-light p-6 rounded-xl">
                             <h3 class="text-xl font-semibold text-primary mb-3 flex items-center">
-                                <i class="fa-solid fa-rocket text-primary mr-3 text-xl"></i>
-                                参赛经历
+                                <i class="fa-solid fa-robot text-primary mr-3 text-xl"></i>
+                                Our Goals
                             </h3>
-                            <p>参加西城科技馆“小院士”深海采样比赛，获得了联盟总冠军的好成绩</p>
+                            <p>We aim to achieve excellent results in competitions while promoting STEM education, inspiring more young people to explore the fascinating world of science and technology.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 队伍使命 -->
+        <!-- Team Mission -->
         <section id="mission" class="mb-20 scroll-mt-24">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
-                    队伍使命
+                    Team Mission
                     <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
-                    <p class="text-2xl font-medium text-primary mb-6 text-center">"发现问题，探索可能，用科技创造美好未来"</p>
+                    <p class="text-2xl font-medium text-primary mb-6 text-center">"Identify problems, explore possibilities, create a better future with technology"</p>
                     
-                    <p class="text-lg mb-8">我们相信通过STEM教育和技术创新，可以：</p>
+                    <p class="text-lg mb-8">We believe that through STEM education and technological innovation, we can:</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
@@ -194,8 +194,8 @@
                                     <i class="fa-regular fa-lightbulb text-primary text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">培养批判性思维</h3>
-                                    <p>通过解决复杂问题，培养逻辑思维和创新思维。</p>
+                                    <h3 class="font-semibold text-lg mb-2">Cultivate Critical Thinking</h3>
+                                    <p>Develop logical and innovative thinking through solving complex problems.</p>
                                 </div>
                             </div>
                         </div>
@@ -206,8 +206,8 @@
                                     <i class="fa-solid fa-users text-primary text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">践行团队合作</h3>
-                                    <p>理解沟通与协作的重要性，共同达成目标。</p>
+                                    <h3 class="font-semibold text-lg mb-2">Practice Teamwork</h3>
+                                    <p>Understand the importance of communication and collaboration to achieve common goals.</p>
                                 </div>
                             </div>
                         </div>
@@ -218,8 +218,8 @@
                                     <i class="fa-solid fa-gears text-primary text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">解决社会问题</h3>
-                                    <p>运用科技手段，关注并解决实际社会问题。</p>
+                                    <h3 class="font-semibold text-lg mb-2">Solve Social Problems</h3>
+                                    <p>Use technological means to focus on and solve practical social issues.</p>
                                 </div>
                             </div>
                         </div>
@@ -230,8 +230,8 @@
                                     <i class="fa-solid fa-graduation-cap text-primary text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-2">建立学习社区</h3>
-                                    <p>创建积极向上的科技学习社区，分享知识与经验。</p>
+                                    <h3 class="font-semibold text-lg mb-2">Build Learning Community</h3>
+                                    <p>Create a positive technology learning community to share knowledge and experience.</p>
                                 </div>
                             </div>
                         </div>
@@ -240,57 +240,57 @@
             </div>
         </section>
 
-        <!-- 核心价值 -->
+        <!-- Core Values -->
         <section id="values" class="mb-20 scroll-mt-24">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
-                    核心价值
+                    Core Values
                     <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
-                    <p class="text-lg mb-8">遵循FIRST的核心价值观，我们秉持：</p>
+                    <p class="text-lg mb-8">Following FIRST's core values, we uphold:</p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
-                            <h3 class="text-xl font-semibold text-primary mb-3">发现</h3>
-                            <p>好奇驱动我们探索未知，不断学习和成长。</p>
+                            <h3 class="text-xl font-semibold text-primary mb-3">Discovery</h3>
+                            <p>Curiosity drives us to explore the unknown, continuously learn and grow.</p>
                         </div>
                         
                         <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
-                            <h3 class="text-xl font-semibold text-primary mb-3">创新</h3>
-                            <p>用创意和想象力解决挑战，突破传统思维。</p>
+                            <h3 class="text-xl font-semibold text-primary mb-3">Innovation</h3>
+                            <p>Use creativity and imagination to solve challenges and break through traditional thinking.</p>
                         </div>
                         
                         <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
-                            <h3 class="text-xl font-semibold text-primary mb-3">影响</h3>
-                            <p>用技术的力量改变世界，创造积极的社会影响。</p>
+                            <h3 class="text-xl font-semibold text-primary mb-3">Impact</h3>
+                            <p>Use the power of technology to change the world and create positive social impact.</p>
                         </div>
                         
                         <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
-                            <h3 class="text-xl font-semibold text-primary mb-3">包容</h3>
-                            <p>接纳不同背景和观点，营造多元化和包容的团队环境。</p>
+                            <h3 class="text-xl font-semibold text-primary mb-3">Inclusion</h3>
+                            <p>Embrace different backgrounds and perspectives, creating a diverse and inclusive team environment.</p>
                         </div>
                         
                         <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
-                            <h3 class="text-xl font-semibold text-primary mb-3">团队</h3>
-                            <p>协作成就非凡，我们相信集体的智慧大于个人。</p>
+                            <h3 class="text-xl font-semibold text-primary mb-3">Teamwork</h3>
+                            <p>Collaboration achieves extraordinary results; we believe collective wisdom is greater than individual.</p>
                         </div>
                         
                         <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
-                            <h3 class="text-xl font-semibold text-primary mb-3">乐趣</h3>
-                            <p>享受探索科技的过程，保持对学习的热情和动力。</p>
+                            <h3 class="text-xl font-semibold text-primary mb-3">Fun</h3>
+                            <p>Enjoy the process of exploring technology, maintaining enthusiasm and motivation for learning.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 近期动态 -->
+        <!-- Latest News -->
         <section id="news" class="mb-20 scroll-mt-24">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
-                    近期动态
+                    Latest News
                     <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
@@ -300,13 +300,13 @@
                             <div class="bg-primary text-white p-2 rounded-full mr-3">
                                 <i class="fa-regular fa-hand-point-up text-xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary">外联成果</h3>
+                            <h3 class="text-xl font-semibold text-primary">Outreach Achievements</h3>
                         </div>
-                        <p class="mb-4">我们积极与其他有出色战绩的队伍交流，包括12527、16093、11260、14380等国内外队伍</p>
+                        <p class="mb-4">We actively communicate with other teams with excellent records, including 12527, 16093, 11260, 14380 and other domestic and international teams</p>
                         <div class="flex flex-wrap gap-3">
-                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">技术交流</span>
-                            <span class="bg-dark/10 text-dark px-3 py-1 rounded-full text-sm">队伍交流</span>
-                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">外联</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Technical Exchange</span>
+                            <span class="bg-dark/10 text-dark px-3 py-1 rounded-full text-sm">Team Communication</span>
+                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">Outreach</span>
                         </div>
                     </div>
                     
@@ -315,13 +315,13 @@
                             <div class="bg-primary text-white p-2 rounded-full mr-3">
                                 <i class="fa-regular fa-calendar text-xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary">线下交流赛</h3>
+                            <h3 class="text-xl font-semibold text-primary">Offline Exchange Match</h3>
                         </div>
-                        <p class="mb-4">我们在2025.3.22邀请了9支队伍进行线下比赛以及1支队伍进行线上交流，积极学习和弥补自身不足</p>
+                        <p class="mb-4">On March 22, 2025, we invited 9 teams for offline competitions and 1 team for online exchanges, actively learning and improving ourselves</p>
                         <div class="flex flex-wrap gap-3">
-                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">科技推广</span>
-                            <span class="bg-dark/10 text-dark px-3 py-1 rounded-full text-sm">校园活动</span>
-                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">FIRST精神</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Technology Promotion</span>
+                            <span class="bg-dark/10 text-dark px-3 py-1 rounded-full text-sm">Campus Activities</span>
+                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">FIRST Principles</span>
                         </div>
                     </div>
                     
@@ -330,37 +330,37 @@
                             <div class="bg-primary text-white p-2 rounded-full mr-3">
                                 <i class="fa-solid fa-trophy text-xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary">最近赛事成果</h3>
+                            <h3 class="text-xl font-semibold text-primary">Recent Competition Results</h3>
                         </div>
-                        <p class="mb-4">我们在三亚世界机器人大赛（World Robot Contest Championships 2025 - Sanya FTC program & China Off-Season Event）获得了第二联盟队长、联盟第三，联结奖第二名的好成绩。</p>
+                        <p class="mb-4">We achieved excellent results in the World Robot Contest Championships 2025 - Sanya FTC program & China Off-Season Event: 2nd Alliance Captain, 3rd Alliance, and 2nd place in the Connect Award.</p>
                         <div class="flex flex-wrap gap-3">
-                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">赛事成果</span>
-                            <span class="bg-dark/10 text-dark px-3 py-1 rounded-full text-sm">团队荣誉</span>
-                         <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">WRC 2025</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Competition Results</span>
+                            <span class="bg-dark/10 text-dark px-3 py-1 rounded-full text-sm">Team Honors</span>
+                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">WRC 2025</span>
                         </div>
                     </div>
 
                     <div class="mt-8 text-center">
                         <a href="https://ftcscout.org/teams/28119" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-1 duration-300">
                             <i class="fa-solid fa-chart-line mr-2"></i>
-                            查看更多赛事数据
+                            View More Competition Data
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 更多联系方式 -->
+        <!-- Contact Information -->
         <section id="contact" class="mb-20 scroll-mt-24">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
-                    联系方式
+                    Contact Us
                     <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
                     <div class="bg-light p-6 rounded-xl text-center hover-lift mb-8">
-                        <h3 class="text-xl font-semibold text-primary mb-4">欢迎通过以下方式关注我们</h3>
+                        <h3 class="text-xl font-semibold text-primary mb-4">Follow Us Through</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:grid-cols-5 gap-6">
                             <a href="https://www.youtube.com/@FTC28119ID" class="group">
                                 <div class="bg-[#ff0000] text-white p-6 rounded-xl text-center hover-lift">
@@ -377,31 +377,31 @@
                             <a href="https://space.bilibili.com/3546786471872899" class="group">
                                 <div class="bg-[#fb7299] text-white p-6 rounded-xl text-center hover-lift">
                                     <i class="fa-regular fa-circle-play text-4xl mb-3 group-hover:scale-110 transition-transform"></i>
-                                    <h3 class="font-medium">哔哩哔哩</h3>
+                                    <h3 class="font-medium">Bilibili</h3>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="mt-12">
-                        <h3 class="text-xl font-semibold text-primary mb-4">扫描二维码关注我们</h3>
+                        <h3 class="text-xl font-semibold text-primary mb-4">Scan QR Codes to Follow Us</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="bg-light p-6 rounded-xl text-center hover-lift">
-                                <img src="assets/wechat-official.png" alt="微信公众号二维码" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
-                                <h4 class="font-medium">微信公众号</h4>
+                                <img src="assets/wechat-official.png" alt="WeChat Official Account QR Code" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
+                                <h4 class="font-medium">WeChat Official Account</h4>
                             </div>
                             
                             <div class="bg-light p-6 rounded-xl text-center hover-lift">
-                                <img src="assets/douyin.png" alt="抖音官方号二维码" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
-                                <h4 class="font-medium">抖音官方号</h4>
+                                <img src="assets/douyin.png" alt="Douyin Official Account QR Code" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
+                                <h4 class="font-medium">Douyin Official Account</h4>
                             </div>
                             
                             <div class="bg-light p-6 rounded-xl text-center hover-lift">
-                                <img src="assets/weixinhao.png" alt="官方微信二维码" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
-                                <h4 class="font-medium">官方微信</h4>
+                                <img src="assets/weixinhao.png" alt="Official WeChat QR Code" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
+                                <h4 class="font-medium">Official WeChat</h4>
                             </div>
                             <div class="bg-light p-6 rounded-xl text-center hover-lift">
-                                <img src="assets/wechat-channel.png" alt="官方视频号二维码" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
-                                <h4 class="font-medium">官方视频号</h4>
+                                <img src="assets/wechat-channel.png" alt="Official WeChat Channel QR Code" class="w-48 h-48 mx-auto mb-4 rounded-lg" loading="lazy">
+                                <h4 class="font-medium">Official WeChat Channel</h4>
                             </div>
                         </div>
                     </div>
@@ -409,20 +409,20 @@
             </div>
         </section>
 
-        <!-- 团队照片 -->
+        <!-- Team Photo -->
         <section class="mb-20">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 text-center">
-                    团队展望
+                    Team Vision
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
                     <div class="relative overflow-hidden rounded-xl">
-                        <img src="assets/team-photo.png" alt="团队合照" class="w-full h-auto">
+                        <img src="assets/team-photo.png" alt="Team Photo" class="w-full h-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                             <div class="p-6 text-white">
-                                <h3 class="text-2xl font-bold">2024-2025赛季团队合照</h3>
-                                <p>我们的团队由来自不同背景的学生组成，共同追求科技梦想</p>
+                                <h3 class="text-2xl font-bold">2024-2025 Season Team Photo</h3>
+                                <p>Our team consists of students from diverse backgrounds, pursuing technological dreams together</p>
                             </div>
                         </div>
                     </div>
@@ -431,30 +431,30 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="bg-primary text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">FTC 28119 & 30222</h3>
                     <p class="text-gray-300">Infinite Dream & Navigators</p>
-                    <p class="text-gray-300 mt-4">中国北京 | FIRST Tech Challenge</p>
+                    <p class="text-gray-300 mt-4">Beijing, China | FIRST Tech Challenge</p>
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-bold mb-4">快速链接</h3>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">首页</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">关于我们</a></li>
-                        <li><a href="#mission" class="text-gray-300 hover:text-white transition-colors">队伍使命</a></li>
-                        <li><a href="#values" class="text-gray-300 hover:text-white transition-colors">核心价值</a></li>
-                        <li><a href="#news" class="text-gray-300 hover:text-white transition-colors">近期动态</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">联系方式</a></li>
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#mission" class="text-gray-300 hover:text-white transition-colors">Team Mission</a></li>
+                        <li><a href="#values" class="text-gray-300 hover:text-white transition-colors">Core Values</a></li>
+                        <li><a href="#news" class="text-gray-300 hover:text-white transition-colors">Latest News</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-bold mb-4">关注我们</h3>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
                         <a href="https://www.youtube.com/@FTC28119ID" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                             <i class="fa-brands fa-youtube text-xl"></i>
@@ -469,7 +469,7 @@
                             <i class="fa-brands fa-github text-xl"></i>
                         </a>
                     </div>
-                    <p class="text-gray-300 mt-4">© 2024 FTC 28119 & 30222. 保留所有权利。</p>
+                    <p class="text-gray-300 mt-4">© 2024 FTC 28119 & 30222. All rights reserved.</p>
                     <p class="text-gray-300 mt-4">Presented by 28119 & 30222</p>
                 </div>
             </div>
