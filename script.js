@@ -130,22 +130,28 @@ document.addEventListener('click', function(event) {
 
 // 设置赛季切换链接的正确跳转目标
 document.addEventListener('DOMContentLoaded', function() {
+    // 获取当前页面的URL
+    const currentUrl = window.location.href;
+    
+    // 检查当前是否为英文版页面
+    const isEnglishVersion = currentUrl.includes('dive-Eng.html') || currentUrl.includes('age-Eng.html');
+    
     // 更新桌面端赛季切换链接
     if (currentSeasonBtn) {
-        currentSeasonBtn.href = 'index.html';
+        currentSeasonBtn.href = isEnglishVersion ? 'dive-Eng.html' : 'index.html';
     }
     
     if (nextSeasonBtn) {
-        nextSeasonBtn.href = 'season-2025-2026.html';
+        nextSeasonBtn.href = isEnglishVersion ? 'age-Eng.html' : 'season-2025-2026.html';
     }
     
     // 更新移动端赛季切换链接
     if (mobileCurrentSeasonBtn) {
-        mobileCurrentSeasonBtn.href = 'index.html';
+        mobileCurrentSeasonBtn.href = isEnglishVersion ? 'dive-Eng.html' : 'index.html';
     }
     
     if (mobileNextSeasonBtn) {
-        mobileNextSeasonBtn.href = 'season-2025-2026.html';
+        mobileNextSeasonBtn.href = isEnglishVersion ? 'age-Eng.html' : 'season-2025-2026.html';
     }
 });
 
