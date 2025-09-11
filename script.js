@@ -142,62 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fileName === 'dive-eng.html' ||
         fileName === 'age-eng.html';
     
-    // 获取网站的基础路径（适用于任何部署环境）
-    function getBasePath() {
-        try {
-            // 方法1: 从当前URL路径解析
-            const pathParts = window.location.pathname.split('/');
-            pathParts.pop(); // 移除文件名
-            const basePath = pathParts.join('/') + '/';
-            return basePath || './';
-        } catch (error) {
-            return './'; // 默认返回相对路径
-        }
-    }
-    
-    const basePath = getBasePath();
-    
-    // 定义赛季链接
-    const currentSeasonLink = isEnglishVersion ? 'dive-Eng.html' : 'index.html';
-    const nextSeasonLink = isEnglishVersion ? 'age-Eng.html' : 'season-2025-2026.html';
-    
-    // 构建完整URL
-    function buildFullUrl(link) {
-        // 检查是否已经是绝对URL
-        if (link.startsWith('http://') || link.startsWith('https://')) {
-            return link;
-        }
-        
-        // 确保基础路径以/结尾
-        const normalizedBasePath = basePath.endsWith('/') ? basePath : basePath + '/';
-        
-        // 构建完整URL
-        return normalizedBasePath + link;
-    }
-    
-    // 更新桌面端赛季切换链接
-    if (currentSeasonBtn) {
-        currentSeasonBtn.href = buildFullUrl(currentSeasonLink);
-        // 添加data属性，便于调试和检查
-        currentSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
-    }
-    
-    if (nextSeasonBtn) {
-        nextSeasonBtn.href = buildFullUrl(nextSeasonLink);
-        nextSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
-    }
-    
-    // 更新移动端赛季切换链接
-    if (mobileCurrentSeasonBtn) {
-        mobileCurrentSeasonBtn.href = buildFullUrl(currentSeasonLink);
-        mobileCurrentSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
-    }
-    
-    if (mobileNextSeasonBtn) {
-        mobileNextSeasonBtn.href = buildFullUrl(nextSeasonLink);
-        mobileNextSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
-    }
-    
     // 确保赛季按钮的文本内容与当前页面匹配
     // 这可以防止在某些情况下文本内容显示不正确
     if (fileName === 'index.html' || fileName === 'dive-eng.html') {
