@@ -130,11 +130,19 @@ document.addEventListener('click', function(event) {
 
 // 设置赛季切换链接的正确跳转目标
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取当前页面的URL
+    // 获取当前页面的URL和文件名
     const currentUrl = window.location.href;
+    const currentPath = window.location.pathname;
+    const fileName = currentPath.split('/').pop().toLowerCase();
     
-    // 检查当前是否为英文版页面
-    const isEnglishVersion = currentUrl.includes('dive-Eng.html') || currentUrl.includes('age-Eng.html');
+    // 使用更健壮的方法检查当前是否为英文版页面
+    // 1. 检查URL中是否包含英文文件名
+    // 2. 检查当前文件名是否直接匹配英文文件名
+    const isEnglishVersion = 
+        currentUrl.toLowerCase().includes('dive-eng.html') || 
+        currentUrl.toLowerCase().includes('age-eng.html') ||
+        fileName === 'dive-eng.html' ||
+        fileName === 'age-eng.html';
     
     // 更新桌面端赛季切换链接
     if (currentSeasonBtn) {
