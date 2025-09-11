@@ -131,49 +131,71 @@ document.addEventListener('click', function(event) {
 // 设置赛季切换链接的正确跳转目标
 document.addEventListener('DOMContentLoaded', function() {
     // 获取当前页面的URL和文件名
-    const currentUrl = window.location.href;
-    const currentPath = window.location.pathname;
-    const fileName = currentPath.split('/').pop().toLowerCase();
+    const currentUrl = window.location.href.toLowerCase();
+    const currentPath = window.location.pathname.toLowerCase();
+    const fileName = currentPath.split('/').pop();
     
     // 使用更健壮的方法检查当前是否为英文版页面
     const isEnglishVersion = 
-        currentUrl.toLowerCase().includes('dive-eng.html') || 
-        currentUrl.toLowerCase().includes('age-eng.html') ||
+        currentUrl.includes('dive-eng.html') || 
+        currentUrl.includes('age-eng.html') ||
         fileName === 'dive-eng.html' ||
         fileName === 'age-eng.html';
     
     // 获取网站的基础路径（适用于任何部署环境）
     function getBasePath() {
-        // 获取当前脚本的路径
-        const scripts = document.getElementsByTagName('script');
-        const scriptPath = scripts[scripts.length - 1].src;
-        const basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
-        return basePath;
+        try {
+            // 方法1: 从当前URL路径解析
+            const pathParts = window.location.pathname.split('/');
+            pathParts.pop(); // 移除文件名
+            const basePath = pathParts.join('/') + '/';
+            return basePath || './';
+        } catch (error) {
+            return './'; // 默认返回相对路径
+        }
     }
     
     const basePath = getBasePath();
     
-    // 定义赛季链接（使用相对路径，确保在任何环境下都能正确工作）
+    // 定义赛季链接
     const currentSeasonLink = isEnglishVersion ? 'dive-Eng.html' : 'index.html';
     const nextSeasonLink = isEnglishVersion ? 'age-Eng.html' : 'season-2025-2026.html';
     
+    // 构建完整URL
+    function buildFullUrl(link) {
+        // 检查是否已经是绝对URL
+        if (link.startsWith('http://') || link.startsWith('https://')) {
+            return link;
+        }
+        
+        // 确保基础路径以/结尾
+        const normalizedBasePath = basePath.endsWith('/') ? basePath : basePath + '/';
+        
+        // 构建完整URL
+        return normalizedBasePath + link;
+    }
+    
     // 更新桌面端赛季切换链接
     if (currentSeasonBtn) {
-        // 使用相对路径，确保在网络环境中也能正确工作
-        currentSeasonBtn.href = currentSeasonLink;
+        currentSeasonBtn.href = buildFullUrl(currentSeasonLink);
+        // 添加data属性，便于调试和检查
+        currentSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
     }
     
     if (nextSeasonBtn) {
-        nextSeasonBtn.href = nextSeasonLink;
+        nextSeasonBtn.href = buildFullUrl(nextSeasonLink);
+        nextSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
     }
     
     // 更新移动端赛季切换链接
     if (mobileCurrentSeasonBtn) {
-        mobileCurrentSeasonBtn.href = currentSeasonLink;
+        mobileCurrentSeasonBtn.href = buildFullUrl(currentSeasonLink);
+        mobileCurrentSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
     }
     
     if (mobileNextSeasonBtn) {
-        mobileNextSeasonBtn.href = nextSeasonLink;
+        mobileNextSeasonBtn.href = buildFullUrl(nextSeasonLink);
+        mobileNextSeasonBtn.setAttribute('data-link-type', isEnglishVersion ? 'english' : 'chinese');
     }
     
     // 确保赛季按钮的文本内容与当前页面匹配
