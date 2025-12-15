@@ -38,7 +38,7 @@
     </div>
 
     <!-- 导航栏 -->
-    <nav class="fixed w-full bg-primary/95 text-white z-50 transition-all duration-300">
+    <nav id="navbar" class="fixed w-full bg-primary/95 text-white z-50 transition-all duration-300">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-3">
                 <div class="flex items-center">
@@ -62,7 +62,7 @@
                             <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
                         <div id="season-dropdown" class="absolute right-0 mt-2 w-48 bg-primary/95 rounded-lg shadow-xl hidden z-50">
-                            <a href="index.html" id="current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2024-2025赛季</a>
+                            <a href="in-to-the-deep-CN.html" id="current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2024-2025赛季</a>
                             <a href="decode-CN.html" id="next-season" class="block px-4 py-2 hover:bg-accent/20 text-sm bg-accent/20">2025-2026赛季 (当前)</a>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300"></i>
                     </button>
                     <div id="mobile-season-dropdown" class="hidden mt-1 bg-primary/95 rounded-lg">
-                            <a href="index.html" id="mobile-current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2024-2025赛季</a>
+                            <a href="in-to-the-deep-CN.html" id="mobile-current-season" class="block px-4 py-2 hover:bg-accent/20 text-sm">2024-2025赛季</a>
                             <a href="decode-CN.html" id="mobile-next-season" class="block px-4 py-2 hover:bg-accent/20 text-sm bg-accent/20">2025-2026赛季 (当前)</a>
                         </div>
                     </div>
@@ -106,29 +106,39 @@
         </div>
     </nav>
 
-    <!-- 内容区域 -->
-    <main class="container mx-auto px-4 pt-32 pb-16">
-        <!-- 首页标题 -->
-        <section id="home" class="min-h-[60vh] flex flex-col items-center justify-center text-center mb-20">
-            <div class="max-w-4xl mx-auto">
-                <img src="assets/28119 logo.png" alt="FTC 28119 & 30222 Logo" class="w-32 h-32 md:w-48 md:h-48 mx-auto mb-6">
-                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold mb-4 text-white">
-                    2025-2026赛季<br>
-                    FTC 28119 & 30222
-                </h1>
-                <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-200 mb-8 max-w-2xl mx-auto">
-                    我们正在为新赛季做准备，融合科技创新与团队合作，敬请期待更多精彩内容！
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="#news" class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
-                            了解最新动态
-                        </a>
-                        <a href="#contact" class="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
+    <!-- 标题区域 -->
+    <header id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-transparent text-white overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 flex flex-col items-center text-center">
+                    <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight mb-4">
+                        FTC 28119<br><span class="text-accent">Infinite Dream</span>
+                        <br>
+                        FTC 30222<br><span class="text-accent">Navigators</span>
+                    </h1>
+                    <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 max-w-xl text-balance text-center">
+                        我们是来自中国北京的两支FTC机器人竞赛队伍，致力于通过创新与协作，在机器人领域探索无限可能。
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="#contact" class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
                             联系我们
                         </a>
+                        <a href="#about" class="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
+                            了解我们
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <img src="assets/robotdecode.png" alt="FTC机器人照片" class="rounded-lg" loading="lazy">
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </header>
+
+    <!-- 内容区域 -->
+    <main class="container mx-auto px-4 py-16">
 
         <!-- 关于我们 -->
         <section id="about" class="mb-20 scroll-mt-24">
@@ -169,34 +179,61 @@
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
                     队伍使命
-                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-accent rounded-full"></span>
+                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
-                    <div class="flex flex-col md:flex-row gap-8 items-center">
-                        <div class="w-full md:w-2/5">
-                            <img src="assets/robot.png" alt="机器人" class="w-full h-auto rounded-xl shadow-lg">
+                    <p class="text-2xl font-medium text-primary mb-6 text-center">"发现问题，探索可能，用科技创造美好未来"</p>
+                    
+                    <p class="text-lg mb-8">2025-2026赛季我们的愿景是：</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-regular fa-lightbulb text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">提升技术能力</h3>
+                                    <p>深入探索机器人技术，提升团队在机械设计、电子工程和编程方面的综合能力。</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="w-full md:w-3/5">
-                            <h3 class="text-xl font-semibold text-primary mb-4">2025-2026赛季愿景</h3>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check-circle text-accent mt-1 mr-2"></i>
-                                    <span>深入探索机器人技术，提升团队在机械设计、电子工程和编程方面的综合能力</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check-circle text-accent mt-1 mr-2"></i>
-                                    <span>在比赛中取得优异成绩，争取进入更高水平的赛事</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check-circle text-accent mt-1 mr-2"></i>
-                                    <span>培养团队成员的创新思维、问题解决能力和团队协作精神</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check-circle text-accent mt-1 mr-2"></i>
-                                    <span>积极参与社区活动，推广STEM教育理念</span>
-                                </li>
-                            </ul>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-solid fa-users text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">取得优异成绩</h3>
+                                    <p>在比赛中取得优异成绩，争取进入更高水平的赛事。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-solid fa-gears text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">培养团队精神</h3>
+                                    <p>培养团队成员的创新思维、问题解决能力和团队协作精神。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-solid fa-graduation-cap text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">推广STEM教育</h3>
+                                    <p>积极参与社区活动，推广STEM教育理念。</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -208,40 +245,42 @@
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
                     核心价值
-                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-accent rounded-full"></span>
+                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-lightbulb text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">创新</h3>
-                        <p>不断探索新的技术和方法，挑战自我，突破传统思维的局限。</p>
-                    </div>
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
+                    <p class="text-lg mb-8">遵循FIRST的核心价值观，我们秉持：</p>
                     
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-handshake text-primary text-xl"></i>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">创新</h3>
+                            <p>不断探索新的技术和方法，挑战自我，突破传统思维的局限。</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">合作</h3>
-                        <p>尊重每一位团队成员的贡献，发挥集体智慧，共同成长。</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-graduation-cap text-primary text-xl"></i>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">合作</h3>
+                            <p>尊重每一位团队成员的贡献，发挥集体智慧，共同成长。</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">学习</h3>
-                        <p>保持求知欲，不断学习新知识和技能，提高自身素质。</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-award text-primary text-xl"></i>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">学习</h3>
+                            <p>保持求知欲，不断学习新知识和技能，提高自身素质。</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">卓越</h3>
-                        <p>追求卓越，精益求精，不满足于现状，努力做到最好。</p>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">卓越</h3>
+                            <p>追求卓越，精益求精，不满足于现状，努力做到最好。</p>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">包容</h3>
+                            <p>接纳不同背景和观点，营造多元化和包容的团队环境。</p>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">乐趣</h3>
+                            <p>享受探索科技的过程，保持对学习的热情和动力。</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -259,18 +298,18 @@
                     <div class="space-y-6">
                         <div class="border-b border-gray-200 pb-6">
                             <div class="flex items-center mb-3">
-                                <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">日期</span>
-                                <h3 class="ml-3 text-lg font-semibold text-primary">梗概</h3>
-                            </div>
-                            <p>简述</p>
-                        </div>
-                        
-                        <div class="border-b border-gray-200 pb-6">
-                            <div class="flex items-center mb-3">
                                 <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">2025/11/15~2025/11/16</span>
                                 <h3 class="ml-3 text-lg font-semibold text-primary">中国区重庆（资格赛）</h3>
                             </div>
                             <p>我们在此次资格赛，将#30222的世界排名提升至世界第87名，#28119的资格赛排名最高第9名</p>
+                        </div>
+                        
+                        <div class="border-b border-gray-200 pb-6">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">2025/12/13~2025/12/14</span>
+                                <h3 class="ml-3 text-lg font-semibold text-primary">中国区北京#1（资格赛）</h3>
+                            </div>
+                            <p>此次资格赛，#30222荣获Think Award第二名，#28119荣获Inspire Award第一名并晋级China Championship</p>
                         </div>
                         
                         <div class="border-b border-gray-200 pb-6">
@@ -292,11 +331,11 @@
             </div>
         </section>
 
-        <!-- 联系方式 -->
+        <!-- 更多联系方式 -->
         <section id="contact" class="mb-20 scroll-mt-24">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
-                    联系我们
+                    联系方式
                     <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 

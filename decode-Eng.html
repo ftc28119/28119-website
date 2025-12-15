@@ -38,7 +38,7 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="fixed w-full bg-primary/95 text-white z-50 transition-all duration-300">
+    <nav id="navbar" class="fixed w-full bg-primary/95 text-white z-50 transition-all duration-300">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-3">
                 <div class="flex items-center">
@@ -107,25 +107,34 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 pt-32 pb-16">
+    <main class="container mx-auto px-4 py-16">
         <!-- Hero Section -->
-        <section id="home" class="min-h-[60vh] flex flex-col items-center justify-center text-center mb-20">
-            <div class="max-w-4xl mx-auto">
-                <img src="assets/28119 logo.png" alt="FTC 28119 & 30222 Logo" class="w-32 h-32 md:w-48 md:h-48 mx-auto mb-6">
-                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold mb-4 text-white">
-                    2025-2026 Season<br>
-                    FTC 28119 & 30222
-                </h1>
-                <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-200 mb-8 max-w-2xl mx-auto">
-                    We are preparing for the new season, integrating technological innovation with teamwork. Stay tuned for more exciting content!
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="#news" class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
-                        Learn About Latest Updates
-                    </a>
-                    <a href="#contact" class="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
-                        Contact Us
-                    </a>
+        <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-transparent text-white overflow-hidden mb-20">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 flex flex-col items-center text-center">
+                        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight mb-4">
+                            FTC 28119<br><span class="text-accent">Infinite Dream</span>
+                            <br>
+                            FTC 30222<br><span class="text-accent">Navigators</span>
+                        </h1>
+                        <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 max-w-xl text-balance text-center">
+                            We are preparing for the 2025-2026 season, integrating technological innovation with teamwork. Stay tuned for more exciting content!
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="#contact" class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
+                                Contact Us
+                            </a>
+                            <a href="#about" class="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover-lift">
+                                Learn About Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="relative">
+                            <img src="assets/robot.png" alt="FTC Robot Photo" class="rounded-lg" loading="lazy">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -164,45 +173,113 @@
             </div>
         </section>
 
+        <!-- Team Mission -->
+        <section id="mission" class="mb-20 scroll-mt-24">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
+                    Team Mission
+                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
+                </h2>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
+                    <p class="text-2xl font-medium text-primary mb-6 text-center">"Discover problems, explore possibilities, create a better future with technology"</p>
+                    
+                    <p class="text-lg mb-8">Our vision for the 2025-2026 season is:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-regular fa-lightbulb text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">Enhance Technical Capabilities</h3>
+                                    <p>Deeply explore robotics technology and enhance the team's comprehensive capabilities in mechanical design, electronic engineering, and programming.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-solid fa-trophy text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">Achieve Excellent Results</h3>
+                                    <p>Achieve excellent results in competitions and strive to enter higher-level events.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-solid fa-users text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">Cultivate Team Spirit</h3>
+                                    <p>Cultivate team members' innovative thinking, problem-solving abilities, and teamwork spirit.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fa-solid fa-graduation-cap text-primary text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">Promote STEM Education</h3>
+                                    <p>Actively participate in community activities and promote STEM education concepts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Core Values -->
         <section id="values" class="mb-20 scroll-mt-24">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
                     Core Values
-                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-accent rounded-full"></span>
+                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-lightbulb text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">Innovation</h3>
-                        <p>Continuously explore new technologies and methods, challenge ourselves, and break through the limitations of traditional thinking.</p>
-                    </div>
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
+                    <p class="text-lg mb-8">Following FIRST's core values, we uphold:</p>
                     
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-handshake text-primary text-xl"></i>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">Innovation</h3>
+                            <p>Continuously explore new technologies and methods, challenge ourselves, and break through the limitations of traditional thinking.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">Collaboration</h3>
-                        <p>Respect each other's ideas, communicate openly, and work together to achieve common goals through effective teamwork.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-graduation-cap text-primary text-xl"></i>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">Collaboration</h3>
+                            <p>Respect each team member's contribution, utilize collective wisdom, and grow together.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">Learning</h3>
-                        <p>Maintain a humble attitude, keep learning new knowledge and skills, and continuously improve ourselves.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-xl hover-lift">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-heart text-primary text-xl"></i>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">Learning</h3>
+                            <p>Maintain curiosity, continuously learn new knowledge and skills, and improve self-quality.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary mb-2">Passion</h3>
-                        <p>Maintain enthusiasm for technology and robotics, and inject passion into every task and challenge.</p>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-primary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">Excellence</h3>
+                            <p>Pursue excellence, strive for perfection, not be satisfied with the status quo, and work hard to be the best.</p>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-secondary hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">Inclusivity</h3>
+                            <p>Accept different backgrounds and perspectives, creating a diverse and inclusive team environment.</p>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-xl border-l-4 border-accent hover-lift">
+                            <h3 class="text-xl font-semibold text-primary mb-3">Fun</h3>
+                            <p>Enjoy the process of exploring technology and maintain enthusiasm and motivation for learning.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -213,34 +290,18 @@
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
                     Latest Updates
-                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-accent rounded-full"></span>
+                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">
-                    <div class="space-y-6">
-                        <div class="border-b border-gray-200 pb-6">
-                            <div class="flex items-center mb-3">
-                                <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">2025/11/15~2025/11/16</span>
-                                <h3 class="ml-3 text-lg font-semibold text-primary">China FTC Chongqing Qualifier</h3>
-                            </div>
-                            <p>We participated in the China FTC Chongqing Qualifier, where we raised the world ranking of #30222 to 87th and the qualification ranking of #28119 to 9th.</p>
-                        </div>
-                        
-                        <div class="border-b border-gray-200 pb-6">
-                            <div class="flex items-center mb-3">
-                                <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">Date</span>
-                                <h3 class="ml-3 text-lg font-semibold text-primary">Overview</h3>
-                            </div>
-                            <p>activities</p>
-                        </div>
-                        
-                        <div class="border-b border-gray-200 pb-6">
-                            <div class="flex items-center mb-3">
-                                <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">Date</span>
-                                <h3 class="ml-3 text-lg font-semibold text-primary">Overview</h3>
-                            </div>
-                            <p>activities</p>
-                        </div>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">China FTC Chongqing Qualifier</h3>
+                        <p class="text-dark">We participated in the China FTC Chongqing Qualifier on 2025/11/15~2025/11/16, where we raised the world ranking of #30222 to 87th and the qualification ranking of #28119 to 9th.</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">China FTC Beijing Qualifier 1</h3>
+                        <p class="text-dark">We achieved excellent results in the China FTC Beijing Qualifier 1, and our teamwork skills have been further enhanced.</p>
                     </div>
                 </div>
             </div>
@@ -251,7 +312,7 @@
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-6 relative">
                     Contact Us
-                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-accent rounded-full"></span>
+                    <span class="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></span>
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift mt-8">

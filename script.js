@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 确保赛季按钮的文本内容与当前页面匹配
     // 这可以防止在某些情况下文本内容显示不正确
-    if (fileName === 'index.html' || fileName === 'in-to-the-deep-eng.html') {
+    if (fileName === 'in-to-the-deep-CN.html' || fileName === 'in-to-the-deep-eng.html') {
         // 当前是旧赛季页面
         if (currentSeasonBtn) {
             currentSeasonBtn.classList.add('bg-accent/20');
